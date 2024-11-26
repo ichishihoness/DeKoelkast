@@ -25,4 +25,9 @@ public partial class LoginPage : ContentPage
             Navigation.PushAsync(new MainPage());
         }
     }
+
+    private void RegistrationPageButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new RegistrationPage());
+    }
 }

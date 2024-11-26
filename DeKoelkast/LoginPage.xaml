@@ -32,7 +32,12 @@
             Text="Login"
             WidthRequest="180"
             HeightRequest="60"/>
-        
+
+        <Button
+            x:Name="RegistrationPageButton"
+            Clicked="RegistrationPageButton_Clicked"
+            HorizontalOptions="Center"/>
+          
     </VerticalStackLayout>
     
 </ContentPage>

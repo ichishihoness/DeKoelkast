@@ -1,15 +1,26 @@
-namespace DeKoelkast.MVVM.Models;
+using System.Runtime.InteropServices;
+using SQLite;
 
-public class Users : ContentPage
+namespace DeKoelkast.MVVM.Models
 {
-	public Users()
-	{
-		Content = new VerticalStackLayout
-		{
-			Children = {
-				new Label { HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Text = "Welcome to .NET MAUI!"
-				}
-			}
-		};
-	}
+    [Table("Users")]
+    public class Users
+    {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+
+        [Column("Username"), Indexed, NotNull]
+        public string? Username { get; set; }
+
+        [Column("Password"), NotNull]
+        public string? Password { get; set; }
+
+        [Column("Balance"), NotNull]
+        public decimal Balance { get; set; }
+
+        [Column("Authorized"), NotNull]
+        public bool Authorized { get; set; } = false;
+    }
 }
+
+

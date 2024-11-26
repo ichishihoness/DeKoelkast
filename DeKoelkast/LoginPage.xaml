@@ -5,7 +5,6 @@
 
     <VerticalStackLayout
         Padding="30"
-        BackgroundColor="White"
         Spacing="25">
 
         <Label

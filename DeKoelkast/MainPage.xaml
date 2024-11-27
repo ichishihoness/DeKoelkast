@@ -6,7 +6,21 @@
     <VerticalStackLayout
         Padding="30,0"
         Spacing="25">
-        
+
+        <Button
+            x:Name="BackToLoginButton"
+            Clicked="BackToLoginButton_Clicked"
+            />
+
+        <Button
+            x:Name="SettingsButton"
+            Clicked="SettingsButton_Clicked"
+            />
+
+        <Button
+            x:Name="ProductButton"
+            Clicked="ProductButton_Clicked"
+            />
 
     </VerticalStackLayout>
 

@@ -3,25 +3,149 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DeKoelkast.MainPage">
 
-    <VerticalStackLayout
-        Padding="30,0"
-        Spacing="25">
+    <Grid
+        RowSpacing="20"
+        ColumnSpacing="60">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
 
         <Button
+            Grid.ColumnSpan="2"
             x:Name="BackToLoginButton"
             Clicked="BackToLoginButton_Clicked"
+            Text="B"
             />
 
         <Button
+            Grid.Column="6"
+            Grid.ColumnSpan="2"
             x:Name="SettingsButton"
             Clicked="SettingsButton_Clicked"
+            Text="S"
+            />
+
+        <ScrollView
+            HorizontalScrollBarVisibility="Never"
+            Orientation="Horizontal"
+            Grid.Row="1"
+            Grid.RowSpan="3"
+            Grid.ColumnSpan="8">
+
+            <HorizontalStackLayout
+                Spacing="20"
+                Padding="10">
+
+                <Button
+                    x:Name="ProductButton"
+                    Clicked="ProductButton_Clicked"
+                    HeightRequest="160"
+                    WidthRequest="100"
+                    />
+
+                <Button
+                    x:Name="ProductButton2"
+                    Clicked="ProductButton_Clicked"
+                    HeightRequest="160"
+                    WidthRequest="100"
+                    />
+
+                <Button
+                    x:Name="ProductButton3"
+                    Clicked="ProductButton_Clicked"
+                    HeightRequest="160"
+                    WidthRequest="100"
+                    />
+
+                <Button
+                    x:Name="ProductButton4"
+                    Clicked="ProductButton_Clicked"
+                    HeightRequest="160"
+                    WidthRequest="100"
+                    />
+
+            </HorizontalStackLayout>
+
+        </ScrollView>  
+        
+        <ScrollView
+            HorizontalScrollBarVisibility="Never"
+            Orientation="Horizontal"
+            Grid.Row="4"
+            Grid.RowSpan="3"
+            Grid.ColumnSpan="8">
+
+            <HorizontalStackLayout
+                Spacing="20"
+                Padding="10">
+
+                <BoxView
+                    HeightRequest="160"
+                    WidthRequest="100"
+                    />
+
+                <BoxView
+                    HeightRequest="160"
+                    WidthRequest="100"
+                    />
+
+                <BoxView
+                    HeightRequest="160"
+                    WidthRequest="100"
+                    />
+
+                <BoxView
+                    HeightRequest="160"
+                    WidthRequest="100"
+                    />
+
+            </HorizontalStackLayout>
+
+        </ScrollView> 
+
+        <Button
+            Grid.Row="8"
+            Grid.RowSpan="3"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            x:Name="AddProductButton"
+            Clicked="AddProductButton_Clicked"
+            Text="AP"
             />
 
         <Button
-            x:Name="ProductButton"
-            Clicked="ProductButton_Clicked"
+            Grid.Row="8"
+            Grid.RowSpan="3"
+            Grid.Column="4"
+            Grid.ColumnSpan="3"
+            x:Name="AddUserButton"
+            Clicked="AddUserButton_Clicked"
+            Text="AU"
             />
 
-    </VerticalStackLayout>
+    </Grid>
 
 </ContentPage>

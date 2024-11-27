@@ -22,6 +22,17 @@
         {
             Navigation.PushAsync(new ProductPage());
         }
+
+        private void AddProductButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AddProductPage());
+        }
+
+        private void AddUserButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AddUserPage());
+        }
+
     }
 
 }

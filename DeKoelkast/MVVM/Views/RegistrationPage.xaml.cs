@@ -1,3 +1,4 @@
+using Microsoft.Maui.Devices.Sensors;
 namespace DeKoelkast;
 
 public partial class RegistrationPage : ContentPage
@@ -22,6 +23,7 @@ public partial class RegistrationPage : ContentPage
         }
         else
         {
+            App.UserRepository.AddOrUpdate(new MVVM.Models.Users { Username = UsernameRegistrationEntry.Text, Password = PasswordRegistrationEntry.Text });
             Navigation.PushAsync(new MVVM.Views.MainPage());
         }
     }

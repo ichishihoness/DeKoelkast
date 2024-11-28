@@ -1,9 +1,14 @@
+using System;
 using SQLite;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using DeKoelkast.MVVM.Models;
-using SQLitePCL;
+using System.Data.Common;
 
 
-namespace DeKoelkast
+namespace DeKoelkast.Repositories
 {
     public class UserRepository
     {
@@ -14,26 +19,26 @@ namespace DeKoelkast
         public UserRepository()
         {
             connection = new SQLiteConnection(
-                Constants.DatabasePath, 
+                Constants.DatabasePath,
                 Constants.flags);
             connection.CreateTable<Users>();
         }
 
-        public void AddOrUpdate(Users username, string password)
+        public void AddOrUpdate(Users user)
         {
             int result = 0;
             try
             {
 
 
-                if (username.Id != 0)
+                if (user.Id != 0)
                 {
-                    result = connection.Update(username);
+                    result = connection.Update(user);
                     statusMessage = $"{result} row(s) updated";
                 }
                 else
                 {
-                    result = connection.Insert(username);
+                    result = connection.Insert(user);
                     statusMessage = $"{result} row(s) added";
                 }
 
@@ -68,6 +73,21 @@ namespace DeKoelkast
                 statusMessage = $"Error: {ex.Message}";
             }
             return null;
+        }
+
+        public bool GetLogin(string userName, string passWord)
+        {
+            try
+            {
+                var result = connection.Table<Users>().FirstOrDefault(x => x.Username == userName && x.Password == passWord);
+                if (result == null) return false;
+            }
+            catch (Exception ex)
+            {
+                statusMessage = $"Error: {ex.Message}";
+                return false;
+            }
+            return true;
         }
 
         public void Delete(int userid)

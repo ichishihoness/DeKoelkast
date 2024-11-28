@@ -2,16 +2,30 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:DeKoelkast.MVVM.ViewModels"
-             x:Class="DeKoelkast.LoginPage">
+             x:Class="DeKoelkast.LoginPage"
+             BackgroundImageSource="wallpaperapp.jpg">
 
     <VerticalStackLayout
         Padding="30"
-        Spacing="25">
+        Spacing="15">
+
+        <Image
+            Source="logo.png"
+            Scale="1.5"
+            />
 
         <Label
             HorizontalOptions="Center"
-            TextColor="Black"
-            Text="log in"/>
+            Text="De Koelkast"
+            
+            FontSize="50"
+            FontAttributes="Bold"/>
+
+        <Label
+            HorizontalOptions="Center"
+            Text="Log in"
+            FontSize="30"
+            FontAttributes="Bold"/>
 
         <Entry
             x:Name="UsernameLoginEntry"
@@ -28,7 +42,6 @@
         <Button
             x:Name="LoginButton"
             Clicked="LoginButton_Clicked"
-            BackgroundColor="LightBlue"
             Text="Login"
             WidthRequest="180"
             HeightRequest="60"/>
@@ -36,7 +49,10 @@
         <Button
             x:Name="RegistrationPageButton"
             Clicked="RegistrationPageButton_Clicked"
-            HorizontalOptions="Center"/>
+            HorizontalOptions="Center"
+            Text="New user?"
+            WidthRequest="180"
+            HeightRequest="60"/>
           
     </VerticalStackLayout>
     

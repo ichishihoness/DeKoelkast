@@ -5,9 +5,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:DeKoelkast"
     Shell.FlyoutBehavior="Disabled"
+    NavigationPage.HasNavigationBar="False"
     Title="DeKoelkast">
 
+    <Shell.BackButtonBehavior>
+
+        <BackButtonBehavior IsEnabled="False" IsVisible="False"/>
+
+    </Shell.BackButtonBehavior>
+    
     <ShellContent
+        
+
         Title=""
         ContentTemplate="{DataTemplate local:LoginPage}"
         Route="LoginPage" />

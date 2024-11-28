@@ -1,8 +1,10 @@
 using SQLite;
 using DeKoelkast.MVVM.Models;
+using SQLitePCL;
+
+
 namespace DeKoelkast
 {
-
     public class UserRepository
     {
         SQLiteConnection connection;
@@ -11,7 +13,9 @@ namespace DeKoelkast
 
         public UserRepository()
         {
-            connection = new SQLiteConnection(Constants.DatabasePath, Constants.flags);
+            connection = new SQLiteConnection(
+                Constants.DatabasePath, 
+                Constants.flags);
             connection.CreateTable<Users>();
         }
 

@@ -1,5 +1,6 @@
 using System.Runtime.InteropServices;
 using SQLite;
+using SQLitePCL;
 
 namespace DeKoelkast.MVVM.Models
 {

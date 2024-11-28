@@ -22,7 +22,7 @@ public partial class RegistrationPage : ContentPage
         }
         else
         {
-            Navigation.PushAsync(new MainPage());
+            Navigation.PushAsync(new MVVM.Views.MainPage());
         }
     }
 

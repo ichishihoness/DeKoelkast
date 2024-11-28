@@ -1,4 +1,4 @@
-﻿namespace DeKoelkast
+﻿namespace DeKoelkast.MVVM.Views
 {
     public partial class MainPage : ContentPage
     {

@@ -1,6 +1,8 @@
 using SQLite;
 using System.IO;
 using Microsoft.Maui.Storage;
+using SQLitePCL;
+
 namespace DeKoelkast
 {
 	public static class Constants

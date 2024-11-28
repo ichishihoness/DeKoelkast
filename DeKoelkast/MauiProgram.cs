@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using DeKoelkast.Repositories;
+using Microsoft.Extensions.Logging;
 
 namespace DeKoelkast
 {

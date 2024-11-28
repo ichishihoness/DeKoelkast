@@ -22,7 +22,14 @@ public partial class LoginPage : ContentPage
         }
         else
         {
-            Navigation.PushAsync(new MVVM.Views.MainPage());
+            if (App.UserRepository.GetLogin(UsernameLoginEntry.Text, PasswordLoginEntry.Text))
+            {
+                Navigation.PushAsync(new MVVM.Views.MainPage());
+            }
+            else
+            {
+
+            }
         }
     }
 

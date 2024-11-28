@@ -26,14 +26,14 @@ namespace DeKoelkast.MVVM.ViewModels
 			GenerateNewUser();
 			AddOrUpdateCommand = new Command(async () =>
 			{
-				App.UserRepo.AddOrUpdate(CurrentUser);
-				Console.WriteLine(App.UserRepo.statusMessage);
+				App.UserRepository.AddOrUpdate(CurrentUser);
+				Console.WriteLine(App.UserRepository.statusMessage);
 				GenerateNewUser();
 				Refresh();
 			});
 			DeleteCommand = new Command(() =>
 			{
-				App.UserRepo.Delete(CurrentUser.Id);
+				App.UserRepository.Delete(CurrentUser.Id);
 				Refresh();
 				GenerateNewUser();
 			});
@@ -42,14 +42,13 @@ namespace DeKoelkast.MVVM.ViewModels
 		private void GenerateNewUser()
 		{
 			CurrentUser = new Faker<Users>()
-				.RuleFor(x => x.Username, f => f.User.Username)
-				.RuleFor(x => x.Balance, f => f.User.Balance)
+				.RuleFor(x => x.Username, f => f.Person.UserName)
 				.Generate();
 		}	
 
 		private void Refresh()
 		{
-			Users = App.UserRepo.GetAll();
+			Users = App.UserRepository.GetAll();
 		}
 	}
 }

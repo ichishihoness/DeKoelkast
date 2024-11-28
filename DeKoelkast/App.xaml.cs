@@ -1,13 +1,15 @@
-﻿namespace DeKoelkast
+﻿using DeKoelkast.Repositories;
+
+namespace DeKoelkast
 {
     public partial class App : Application
     {
-        public static UserRepository? UserRepo { get; private set; }
-        public App(UserRepository userRepo)
+        public static UserRepository? UserRepository { get; private set; }
+        public App(UserRepository userRepository)
         {
             InitializeComponent();
 
-            UserRepo = userRepo;
+            UserRepository = userRepository;
             MainPage = new AppShell();
         }
     }

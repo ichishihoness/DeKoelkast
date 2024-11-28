@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DeKoelkast.RegistrationPage">
+             xmlns:local="clr-namespace:DeKoelkast.MVVM.ViewModels"
+             x:Class="DeKoelkast.LoginPage">
 
     <VerticalStackLayout
         Padding="30"
@@ -10,33 +11,33 @@
         <Label
             HorizontalOptions="Center"
             TextColor="Black"
-            Text="Registrate"/>
+            Text="log in"/>
 
         <Entry
-            x:Name="UsernameRegistrationEntry"
+            x:Name="UsernameLoginEntry"
             TextColor="Black"
             HorizontalTextAlignment="Center"
             Placeholder="Username"/>
 
         <Entry
-            x:Name="PasswordRegistrationEntry"
+            x:Name="PasswordLoginEntry"
             TextColor="Black"
             HorizontalTextAlignment="Center"
             Placeholder="Password"/>
 
         <Button
-            x:Name="RegistrationButton"
-            Clicked="RegistrationButton_Clicked"
+            x:Name="LoginButton"
+            Clicked="LoginButton_Clicked"
             BackgroundColor="LightBlue"
-            Text="Registrate"
+            Text="Login"
             WidthRequest="180"
             HeightRequest="60"/>
 
         <Button
-            x:Name="LoginPageButton"
-            Clicked="LoginPageButton_Clicked"
+            x:Name="RegistrationPageButton"
+            Clicked="RegistrationPageButton_Clicked"
             HorizontalOptions="Center"/>
-
+          
     </VerticalStackLayout>
-
+    
 </ContentPage>

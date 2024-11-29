@@ -36,6 +36,8 @@ public partial class LoginPage : ContentPage
             }
             else
             {
+                UsernameLoginEntry.Text = "";
+                PasswordLoginEntry.Text = "";
                 UsernameLoginEntry.Placeholder = "User not found";
                 PasswordLoginEntry.Placeholder = "User not found";
             }

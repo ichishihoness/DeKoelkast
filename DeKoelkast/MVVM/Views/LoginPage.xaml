@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:DeKoelkast.MVVM.ViewModels"
              x:Class="DeKoelkast.LoginPage"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.ApplicationModel;assembly=CommunityToolkit.Maui.Core"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              BackgroundImageSource="wallpaperapp.jpg">
 
     <VerticalStackLayout
@@ -18,12 +20,13 @@
             HorizontalOptions="Center"
             Text="De Koelkast"
             
+            
             FontSize="50"
             FontAttributes="Bold"/>
 
         <Label
             HorizontalOptions="Center"
-            Text="Log in"
+            Text="Sign in"
             FontSize="30"
             FontAttributes="Bold"/>
 
@@ -36,6 +39,7 @@
         <Entry
             x:Name="PasswordLoginEntry"
             TextColor="Black"
+            IsPassword="True"
             HorizontalTextAlignment="Center"
             Placeholder="Password"/>
 
@@ -43,6 +47,8 @@
             x:Name="LoginButton"
             Clicked="LoginButton_Clicked"
             Text="Login"
+            BorderColor="DarkGrey"
+            BorderWidth="1"
             WidthRequest="180"
             HeightRequest="60"/>
 
@@ -50,6 +56,8 @@
             x:Name="RegistrationPageButton"
             Clicked="RegistrationPageButton_Clicked"
             HorizontalOptions="Center"
+            BorderColor="DarkGrey"
+            BorderWidth="1"
             Text="New user?"
             WidthRequest="180"
             HeightRequest="60"/>

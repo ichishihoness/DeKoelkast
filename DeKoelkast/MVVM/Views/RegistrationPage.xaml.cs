@@ -15,7 +15,15 @@ public partial class RegistrationPage : ContentPage
 
         if (isUsernameEmpty)
         {
-            UsernameRegistrationEntry.Placeholder = "Enter a username";
+            if (isPasswordEmpty)
+            {
+                UsernameRegistrationEntry.Placeholder = "Enter a username";
+                PasswordRegistrationEntry.Placeholder = "Enter a password";
+            }
+            else
+            {
+                UsernameRegistrationEntry.Placeholder = "Enter a username";
+            }
         }
         if (isPasswordEmpty)
         {

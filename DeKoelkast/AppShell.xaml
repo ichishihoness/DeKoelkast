@@ -6,7 +6,10 @@
     xmlns:local="clr-namespace:DeKoelkast"
     Shell.FlyoutBehavior="Disabled"
     NavigationPage.HasNavigationBar="False"
+    NavigationPage.HasBackButton="False"
     Title="DeKoelkast">
+    
+    
 
     <Shell.BackButtonBehavior>
 

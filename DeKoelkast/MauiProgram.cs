@@ -1,5 +1,6 @@
 ﻿using DeKoelkast.Repositories;
 using Microsoft.Extensions.Logging;
+using CommunityToolkit.Maui;
 
 namespace DeKoelkast
 {
@@ -10,10 +11,13 @@ namespace DeKoelkast
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Roboto-Black.ttf", "Roboto");
+                    fonts.AddFont("Roboto-Light.ttf", "RobotoLight");
                 });
 
             builder.Services.AddSingleton<UserRepository>();

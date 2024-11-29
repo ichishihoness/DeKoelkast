@@ -7,40 +7,57 @@
 
     <VerticalStackLayout
         Padding="30"
-        Spacing="25">
+        Spacing="15">
+
+        <Image
+            Source="logo.png"
+            Scale="1.5"
+            />
 
         <Label
             HorizontalOptions="Center"
-            TextColor="Black"
-            Text="Registrate"/>
+            Text="De Koelkast"
+            
+            FontSize="50"
+            FontAttributes="Bold"/>
+
+        <Label
+            HorizontalOptions="Center"
+            Text="Sign up"
+            FontSize="30"
+            FontAttributes="Bold"/>
 
         <Entry
             x:Name="UsernameRegistrationEntry"
-            Text="{Binding CurrentUser.Username}"
             TextColor="Black"
             HorizontalTextAlignment="Center"
             Placeholder="Username"/>
 
         <Entry
             x:Name="PasswordRegistrationEntry"
-            Text="{Binding CurrentUser.Password}"
             TextColor="Black"
+            IsPassword="True"
             HorizontalTextAlignment="Center"
             Placeholder="Password"/>
 
         <Button
             x:Name="RegistrationButton"
             Clicked="RegistrationButton_Clicked"
-            Command="{Binding AddOrUpdateCommand}"
-            BackgroundColor="LightBlue"
-            Text="Registrate"
+            BorderColor="DarkGrey"
+            BorderWidth="1"
+            Text="Login"
             WidthRequest="180"
             HeightRequest="60"/>
 
         <Button
             x:Name="LoginPageButton"
             Clicked="LoginPageButton_Clicked"
-            HorizontalOptions="Center"/>
+            HorizontalOptions="Center"
+            Text="Returning user?"
+            BorderColor="DarkGrey"
+            BorderWidth="1"
+            WidthRequest="180"
+            HeightRequest="60"/>
 
     </VerticalStackLayout>
 

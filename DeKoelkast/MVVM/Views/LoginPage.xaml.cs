@@ -14,7 +14,15 @@ public partial class LoginPage : ContentPage
 
         if (isUsernameEmpty)
         {
-            UsernameLoginEntry.Placeholder = "Enter a username";
+            if (isPasswordEmpty)
+            {
+                UsernameLoginEntry.Placeholder = "Enter a username";
+                PasswordLoginEntry.Placeholder = "Enter a password";
+            }
+            else
+            {
+                UsernameLoginEntry.Placeholder = "Enter a username";
+            }
         }
         if (isPasswordEmpty)
         {
@@ -28,7 +36,8 @@ public partial class LoginPage : ContentPage
             }
             else
             {
-
+                UsernameLoginEntry.Placeholder = "User not found";
+                PasswordLoginEntry.Placeholder = "User not found";
             }
         }
     }

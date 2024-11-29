@@ -16,7 +16,6 @@
     
     <ShellContent
         
-
         Title=""
         ContentTemplate="{DataTemplate local:LoginPage}"
         Route="LoginPage" />

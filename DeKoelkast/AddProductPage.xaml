@@ -73,6 +73,17 @@
             Text="C"
             />
 
+        <Label
+            x:Name="ErrorAddProductLabel"
+            Grid.Column="5"
+            Grid.ColumnSpan="18"
+            Grid.RowSpan="10"
+            Text=""
+            HorizontalTextAlignment="Center"
+            FontSize="20"
+            TextColor="Red"
+            />
+
         <Button
             Grid.Column="20"
             Grid.ColumnSpan="8"

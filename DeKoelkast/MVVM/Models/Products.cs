@@ -14,9 +14,9 @@ namespace DeKoelkast.MVVM.Models
         public string? Productname { get; set; }
 
         [Column("Amount"), NotNull]
-        public int? Amount { get; set; }
+        public string? Amount { get; set; }
 
         [Column("Price"), NotNull]
-        public decimal Price { get; set; }
+        public string Price { get; set; }
     }
 }

@@ -65,12 +65,12 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Button
+        <ImageButton
             Grid.ColumnSpan="8"
             Grid.RowSpan="2"
             x:Name="CancelAddProduct"
             Clicked="CancelAddProduct_Clicked"
-            Text="C"
+            Source="crossicon.png"
             />
 
         <Label
@@ -84,13 +84,13 @@
             TextColor="Red"
             />
 
-        <Button
+        <ImageButton
             Grid.Column="20"
             Grid.ColumnSpan="8"
             Grid.RowSpan="2            "
             x:Name="AddProduct"
             Clicked="AddProduct_Clicked"
-            Text="A"
+            Source="checkicon.png"
             />
 
         <ImageButton
@@ -203,14 +203,14 @@
             FontSize="30"
             />
 
-        <Button
+        <ImageButton
             x:Name="CalculateButton"
             Clicked="CalculateButton_Clicked"
             Grid.Row="21"
             Grid.Column="19"
             Grid.ColumnSpan="8"
             Grid.RowSpan="2"
-            Text="CA"
+            Source="calcicon.png"
             />
 
     </Grid>

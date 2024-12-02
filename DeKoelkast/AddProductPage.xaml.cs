@@ -16,7 +16,7 @@ public partial class AddProductPage : ContentPage
 
     private void CancelAddProduct_Clicked(object sender, EventArgs e)
     {
-
+        Navigation.PushAsync(new MVVM.Views.MainPage());
     }
 
     private void AddProduct_Clicked(object sender, EventArgs e)

@@ -31,7 +31,7 @@ public partial class RegistrationPage : ContentPage
         }
         else
         {
-            App.UserRepository.AddOrUpdate(new MVVM.Models.Users { Username = UsernameRegistrationEntry.Text, Password = PasswordRegistrationEntry.Text });
+            App.UserRepository.SaveEntity(new MVVM.Models.Users { Username = UsernameRegistrationEntry.Text, Password = PasswordRegistrationEntry.Text });
             Navigation.PushAsync(new MVVM.Views.MainPage());
         }
     }

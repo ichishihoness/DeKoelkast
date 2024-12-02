@@ -125,6 +125,7 @@
             Grid.Column="2"
             Grid.ColumnSpan="24"
             Grid.RowSpan="2"
+            MaxLength="3"
             Text=""
             Placeholder="Enter amount"
             HorizontalTextAlignment="Center"

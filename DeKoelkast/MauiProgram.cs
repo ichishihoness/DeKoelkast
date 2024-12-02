@@ -1,6 +1,7 @@
 ﻿using DeKoelkast.Repositories;
 using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
+using DeKoelkast.MVVM.Models;
 
 namespace DeKoelkast
 {
@@ -20,7 +21,8 @@ namespace DeKoelkast
                     fonts.AddFont("Roboto-Light.ttf", "RobotoLight");
                 });
 
-            builder.Services.AddSingleton<UserRepository>();
+            builder.Services.AddSingleton<BaseRepository<Users>>();
+            builder.Services.AddSingleton<BaseRepository<Products>>();
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

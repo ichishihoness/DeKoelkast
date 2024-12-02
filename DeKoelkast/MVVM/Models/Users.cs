@@ -1,15 +1,13 @@
 using System.Runtime.InteropServices;
+using DeKoelkast.Abstractions;
 using SQLite;
 using SQLitePCL;
 
 namespace DeKoelkast.MVVM.Models
 {
     [Table("Users")]
-    public class Users
+    public class Users : TableData
     {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-
         [Column("Username"), Indexed, NotNull]
         public string? Username { get; set; }
 

@@ -8,47 +8,50 @@ using System.Windows.Input;
 using PropertyChanged;
 using Bogus;
 using DeKoelkast.MVVM.Models;
+using DeKoelkast.Repositories;
 
 namespace DeKoelkast.MVVM.ViewModels
 {
+    [AddINotifyPropertyChangedInterface]
+    public class MainPageViewModel
+    {
+        public List<Users>? Users { get; set; }
+        public Users? CurrentUser { get; set; }
+        public ICommand? AddOrUpdateCommand { get; set; }
+        public ICommand? DeleteCommand { get; set; }
 
-	[AddINotifyPropertyChangedInterface]
-	public class MainPageViewModel
-	{
-		public List<Users>? Users { get; set; }
-		public Users? CurrentUser { get; set; }
-		public ICommand? AddOrUpdateCommand { get; set; }
-		public ICommand? DeleteCommand { get; set; }
+        private readonly BaseRepository<Users> _userRepository;
 
-		public MainPageViewModel()
-		{
-			Refresh();
-			GenerateNewUser();
-			AddOrUpdateCommand = new Command(async () =>
-			{
-				App.UserRepository.AddOrUpdate(CurrentUser);
-				Console.WriteLine(App.UserRepository.statusMessage);
-				GenerateNewUser();
-				Refresh();
-			});
-			DeleteCommand = new Command(() =>
-			{
-				App.UserRepository.Delete(CurrentUser.Id);
-				Refresh();
-				GenerateNewUser();
-			});
-		}
+        public MainPageViewModel()
+        {
+            _userRepository = new BaseRepository<Users>();
+            Refresh();
+            GenerateNewUser();
+            AddOrUpdateCommand = new Command(async () =>
+            {
+                _userRepository.SaveEntity(CurrentUser);
+                Console.WriteLine("User saved successfully.");
+                GenerateNewUser();
+                Refresh();
+            });
+            DeleteCommand = new Command(() =>
+            {
+                _userRepository.DeleteEntity(CurrentUser);
+                Refresh();
+                GenerateNewUser();
+            });
+        }
 
-		private void GenerateNewUser()
-		{
-			CurrentUser = new Faker<Users>()
-				.RuleFor(x => x.Username, f => f.Person.UserName)
-				.Generate();
-		}	
+        private void GenerateNewUser()
+        {
+            CurrentUser = new Faker<Users>()
+                .RuleFor(x => x.Username, f => f.Person.UserName)
+                .Generate();
+        }
 
-		private void Refresh()
-		{
-			Users = App.UserRepository.GetAll();
-		}
-	}
+        private void Refresh()
+        {
+            Users = _userRepository.GetEntities();
+        }
+    }
 }

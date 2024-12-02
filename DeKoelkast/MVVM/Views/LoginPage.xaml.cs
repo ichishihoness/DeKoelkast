@@ -30,7 +30,7 @@ public partial class LoginPage : ContentPage
         }
         else
         {
-            if (App.UserRepository.GetLogin(UsernameLoginEntry.Text, PasswordLoginEntry.Text))
+            if (App.UserRepository.GetEntities().Any(user => user.Username == UsernameLoginEntry.Text && user.Password == PasswordLoginEntry.Text))
             {
                 Navigation.PushAsync(new MVVM.Views.MainPage());
             }

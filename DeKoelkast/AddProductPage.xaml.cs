@@ -1,6 +1,4 @@
 using Microsoft.Maui.Layouts;
-using System.Runtime.CompilerServices;
-using System.Security.AccessControl;
 
 namespace DeKoelkast;
 
@@ -11,9 +9,9 @@ public partial class AddProductPage : ContentPage
     private bool PriceSwichState = false;
 
     public AddProductPage()
-	{
-		InitializeComponent();
-	}
+    {
+        InitializeComponent();
+    }
 
     private void CancelAddProduct_Clicked(object sender, EventArgs e)
     {
@@ -27,7 +25,6 @@ public partial class AddProductPage : ContentPage
 
     private void Bottlebutton_Clicked(object sender, EventArgs e)
     {
-
         if (IsSelectedOrNot1)
         {
             IsSelectedOrNot1 = false;
@@ -40,7 +37,6 @@ public partial class AddProductPage : ContentPage
             Bottlebutton.BackgroundColor = Color.FromHex("#cdcdcd");
             Canbutton.BackgroundColor = Color.FromHex("#ffffff");
         }
-
     }
 
     private void Canbutton_Clicked(object sender, EventArgs e)
@@ -59,11 +55,43 @@ public partial class AddProductPage : ContentPage
         }
     }
 
-    private void CalculateButton_Clicked(object sender, EventArgs e)
+    private void PriceSwitch_Toggled(object sender, ToggledEventArgs e)
     {
         if (PriceSwichState)
         {
-            BalanceChangeLabel.Text = $"Balance + €{ProductPriceEntry.GetValue}";
+            PriceSwichState = false;
+        }
+        else
+        {
+            PriceSwichState = true;
+        }
+    }
+
+    private void CalculateButton_Clicked(object sender, EventArgs e)
+    {
+        if (decimal.TryParse(ProductPriceEntry.Text, out decimal price))
+        {
+            if (PriceSwichState == true)
+            {
+                BalanceChangeLabel.Text = $"Balance + €{price:F2}";
+            }
+            else
+            {
+                if (decimal.TryParse(ProductAmountEntry.Text, out decimal amount))
+                {
+                    decimal total = price * amount;
+                    BalanceChangeLabel.Text = $"Balance + €{total:F2}";
+                }
+                else
+                {
+                    BalanceChangeLabel.Text = "Invalid amount";
+                }
+            }
+        }
+
+        else
+        {
+            BalanceChangeLabel.Text = "Invalid price";
         }
     }
 }

@@ -3,10 +3,202 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DeKoelkast.AddProductPage"
              Title="AddProductPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <Grid
+        RowSpacing="20"
+        ColumnSpacing="60">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Button
+            Grid.ColumnSpan="8"
+            Grid.RowSpan="2"
+            x:Name="CancelAddProduct"
+            Clicked="CancelAddProduct_Clicked"
+            Text="C"
+            />
+
+        <Button
+            Grid.Column="20"
+            Grid.ColumnSpan="8"
+            Grid.RowSpan="2            "
+            x:Name="AddProduct"
+            Clicked="AddProduct_Clicked"
+            Text="A"
+            />
+
+        <ImageButton
+            x:Name="Bottlebutton"
+            Grid.Row="3"
+            Grid.Column="2"
+            Grid.ColumnSpan="12"
+            Grid.RowSpan="6"
+            Source="bottleicon.png"
+            BorderWidth="2"
+            BorderColor="Black"
+            BackgroundColor="White"
+            Clicked="Bottlebutton_Clicked"
+            />
+
+        <ImageButton
+            x:Name="Canbutton"
+            Grid.Row="3"
+            Grid.Column="14"
+            Grid.ColumnSpan="12"
+            Grid.RowSpan="6"
+            Source="canicon.png"
+            BorderWidth="2"
+            BorderColor="Black"
+            BackgroundColor="White"
+            Clicked="Canbutton_Clicked"
+            />
+
+        <Entry
+            x:Name="ProductNameEntry"
+            Grid.Row="11"
+            Grid.Column="2"
+            Grid.ColumnSpan="24"
+            Grid.RowSpan="2"
+            Text=""
+            Placeholder="Enter product name"
+            HorizontalTextAlignment="Center"
+            />
+
+        <Entry
+            x:Name="ProductAmountEntry"
+            Grid.Row="14"
+            Grid.Column="2"
+            Grid.ColumnSpan="24"
+            Grid.RowSpan="2"
+            Text=""
+            Placeholder="Enter amount"
+            HorizontalTextAlignment="Center"
+            Keyboard="Numeric"
+            />
+
+        <Label
+            FontSize="20"
+            Grid.Row="17"
+            Grid.Column="6"
+            Grid.ColumnSpan="24"
+            Grid.RowSpan="2"
+            Text="€"
+            />
+
+        <Entry
+            x:Name="ProductPriceEntry"
+            Grid.Row="17"
+            Grid.Column="8"
+            Grid.ColumnSpan="12"
+            Grid.RowSpan="2"
+            Text=""
+            Placeholder="Enter price"
+            HorizontalTextAlignment="Center"
+            Keyboard="Numeric"
+            
+            />
+
+        <Label
+            Grid.Row="19"
+            Grid.Column="7"
+            Grid.ColumnSpan="6"
+            Grid.RowSpan="2"
+            Text="Price per piece"
+            HorizontalTextAlignment="Center"
+            />
+
+        <Switch
+            x:Name="PriceSwitch"
+            Grid.Row="19"
+            Grid.Column="11"
+            Grid.ColumnSpan="6"
+            Grid.RowSpan="2"
+            />
+
+        <Label
+            Grid.Row="19"
+            Grid.Column="14"
+            Grid.ColumnSpan="8"
+            Grid.RowSpan="2"
+            Text="Total price"
+            HorizontalTextAlignment="Center"
+            />
+
+        <Label
+            x:Name="BalanceChangeLabel"
+            Grid.Row="21"
+            Grid.Column="1"
+            Grid.ColumnSpan="24"
+            Grid.RowSpan="4"
+            Text="Balance + €"
+            FontSize="30"
+            />
+
+        <Button
+            x:Name="CalculateButton"
+            Clicked="CalculateButton_Clicked"
+            Grid.Row="21"
+            Grid.Column="19"
+            Grid.ColumnSpan="8"
+            Grid.RowSpan="2"
+            Text="CA"
+            />
+
+    </Grid>
+
 </ContentPage>

@@ -121,6 +121,7 @@
 
         <Entry
             x:Name="ProductNameEntry"
+            MaxLength="10"
             Grid.Row="11"
             Grid.Column="2"
             Grid.ColumnSpan="24"

@@ -56,7 +56,7 @@
         <ScrollView
             HorizontalScrollBarVisibility="Never"
             Orientation="Horizontal"
-            Padding="30,0,0,0"
+            Padding="0,10,0,0"
             Grid.Row="1"
             Grid.RowSpan="3"
             Grid.ColumnSpan="8">
@@ -75,7 +75,7 @@
                             
                             <LinearItemsLayout 
                                 Orientation="Horizontal" 
-                                ItemSpacing="95"
+                                ItemSpacing="20"
                                 />
                             
                         </CollectionView.ItemsLayout>
@@ -83,50 +83,56 @@
                     <CollectionView.ItemTemplate>
                         
                         <DataTemplate>
-                            
+
                             <SwipeView>
-                                
-                                <SwipeView.BottomItems>
-                                    
-                                    <SwipeItems>
-                                        
-                                        <SwipeItem 
-                                            Text="Delete"
-                                            BackgroundColor="Red"
-                                            Command="{Binding 
-                                            Source={RelativeSource 
-                                            AncestorType={x:Type local:MainPageViewModel}},
-                                            Path=DeleteCommand}"
-                                            />
-                                        
-                                    </SwipeItems>
-                                    
-                                </SwipeView.BottomItems>
-                                
-                            <VerticalStackLayout
+
+                                <VerticalStackLayout
                                 Spacing="10">
-                                
-                                    <Label 
-                                        Text="{Binding Productname}"
-                                        Grid.Column="0"
+
+                                    <Button
+                                        x:Name="ProductButton"
+                                        Clicked="ProductButton_Clicked"
+                                        HeightRequest="150"
+                                        WidthRequest="100"
                                         />
-                                
-                                    <Label/>
-                                
-                                    <Label 
-                                        Text="{Binding Amount}"
-                                        Grid.Column="1"
-                                        />
-                                
-                                    <Label/>
-                                
-                                    <Label 
-                                        Text="{Binding Price}"
-                                        Grid.Column="1"
-                                        />
-                                
-                                    <Label/>
-                                
+
+                                        <VerticalStackLayout
+                                            Padding="30"
+                                            Spacing="-49">
+                                                                                     
+                                        <Label/>
+
+                                        <Label/>
+
+                                        <Label/>
+
+                                        <Label 
+                                            Text="{Binding Price}"
+                                            FontSize="20"
+                                            HorizontalOptions="Center"
+                                            />
+                                            
+                                        <Label/>
+                                            
+                                        <Label 
+                                            Text="{Binding Amount}"
+                                            FontSize="20"
+                                            HorizontalOptions="Center"
+                                            />
+
+                                        <Label/>
+
+                                        <Label 
+                                            Text="{Binding Productname}"
+                                            FontSize="20"
+                                            MaximumWidthRequest="100"
+                                            HorizontalOptions="Center"
+                                            />
+
+                                        <Label/>
+
+                                    </VerticalStackLayout>
+
                                 </VerticalStackLayout>
                                 
                             </SwipeView>

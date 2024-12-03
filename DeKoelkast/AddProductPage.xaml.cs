@@ -173,12 +173,14 @@ public partial class AddProductPage : ContentPage
         if (IsSelectedOrNot1)
         {
             IsSelectedOrNot1 = false;
+            IconLabel.Text = "";
             Bottlebutton.BackgroundColor = Color.FromHex("#ffffff");
         }
         else
         {
             IsSelectedOrNot1 = true;
             IsSelectedOrNot2 = false;
+            IconLabel.Text = "bottleicon.png";
             Bottlebutton.BackgroundColor = Color.FromHex("#cdcdcd");
             Canbutton.BackgroundColor = Color.FromHex("#ffffff");
         }
@@ -189,12 +191,14 @@ public partial class AddProductPage : ContentPage
         if (IsSelectedOrNot2)
         {
             IsSelectedOrNot2 = false;
+            IconLabel.Text = "";
             Canbutton.BackgroundColor = Color.FromHex("#ffffff");
         }
         else
         {
             IsSelectedOrNot2 = true;
             IsSelectedOrNot1 = false;
+            IconLabel.Text = "canicon.png";
             Canbutton.BackgroundColor = Color.FromHex("#cdcdcd");
             Bottlebutton.BackgroundColor = Color.FromHex("#ffffff");
         }

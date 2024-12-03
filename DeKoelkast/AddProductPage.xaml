@@ -212,6 +212,17 @@
             Grid.RowSpan="2"
             Source="calcicon.png"
             />
+        
+        <Label
+            x:Name="IconLabel"
+            Grid.Row="21"
+            Grid.Column="19"
+            Grid.ColumnSpan="8"
+            Grid.RowSpan="2"
+            TextColor="White"
+            BackgroundColor="White"
+            Text=""
+            />
 
     </Grid>
 

@@ -13,7 +13,7 @@ namespace DeKoelkast
 
             UserRepository = userRepository;
             ProductRepository = productRepository;
-            MainPage = new AppShell();
+            MainPage = new  AppShell();
         }
     }
 }

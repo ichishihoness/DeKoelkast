@@ -56,6 +56,7 @@
         <ScrollView
             HorizontalScrollBarVisibility="Never"
             Orientation="Horizontal"
+            Padding="30,0,0,0"
             Grid.Row="1"
             Grid.RowSpan="3"
             Grid.ColumnSpan="8">
@@ -65,36 +66,77 @@
                 Padding="10">
 
                 <CollectionView
-                Grid.Row="1"
-                ItemsSource="{Binding Products}"
-                SelectionMode="Single"
-                SelectedItem="{Binding CurrentProducts}">
+                    ItemsSource="{Binding Products}"
+                    SelectionMode="Single"
+                    HorizontalOptions="Center"
+                    SelectedItem="{Binding CurrentProducts}">
+                    
+                        <CollectionView.ItemsLayout>
+                            
+                            <LinearItemsLayout 
+                                Orientation="Horizontal" 
+                                ItemSpacing="95"
+                                />
+                            
+                        </CollectionView.ItemsLayout>
+                    
                     <CollectionView.ItemTemplate>
+                        
                         <DataTemplate>
+                            
                             <SwipeView>
-                                <SwipeView.LeftItems>
+                                
+                                <SwipeView.BottomItems>
+                                    
                                     <SwipeItems>
-                                        <SwipeItem Text="Delete"
-                                               BackgroundColor="Red"
-                                               Command="{Binding 
+                                        
+                                        <SwipeItem 
+                                            Text="Delete"
+                                            BackgroundColor="Red"
+                                            Command="{Binding 
                                             Source={RelativeSource 
                                             AncestorType={x:Type local:MainPageViewModel}},
-                                            Path=DeleteCommand}"/>
+                                            Path=DeleteCommand}"
+                                            />
+                                        
                                     </SwipeItems>
-                                </SwipeView.LeftItems>
-                                <HorizontalStackLayout>
-                                    <Label Text="{Binding Productname}"
-                                       Grid.Column="0"/>
-                                    <Label />
-                                    <Label Text="{Binding Amount}"
-                                       Grid.Column="1"/>
-                                    <Label />
-                                </HorizontalStackLayout>
+                                    
+                                </SwipeView.BottomItems>
+                                
+                            <VerticalStackLayout
+                                Spacing="10">
+                                
+                                    <Label 
+                                        Text="{Binding Productname}"
+                                        Grid.Column="0"
+                                        />
+                                
+                                    <Label/>
+                                
+                                    <Label 
+                                        Text="{Binding Amount}"
+                                        Grid.Column="1"
+                                        />
+                                
+                                    <Label/>
+                                
+                                    <Label 
+                                        Text="{Binding Price}"
+                                        Grid.Column="1"
+                                        />
+                                
+                                    <Label/>
+                                
+                                </VerticalStackLayout>
+                                
                             </SwipeView>
+                            
                         </DataTemplate>
+                        
                     </CollectionView.ItemTemplate>
+                    
                 </CollectionView>
-
+                
             </HorizontalStackLayout>
 
         </ScrollView>  

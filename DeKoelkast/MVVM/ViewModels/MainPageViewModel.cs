@@ -15,43 +15,21 @@ namespace DeKoelkast.MVVM.ViewModels
     [AddINotifyPropertyChangedInterface]
     public class MainPageViewModel
     {
-        public List<Users>? Users { get; set; }
-        public Users? CurrentUser { get; set; }
+        public List<Products>? Products { get; set; }
+        public Products? CurrentProducts { get; set; }
         public ICommand? AddOrUpdateCommand { get; set; }
         public ICommand? DeleteCommand { get; set; }
 
-        private readonly BaseRepository<Users> _userRepository;
+        private readonly BaseRepository<Products> _baseRepository;
 
         public MainPageViewModel()
         {
-            _userRepository = new BaseRepository<Users>();
+            _baseRepository = new BaseRepository<Products>();
             Refresh();
-            GenerateNewUser();
-            AddOrUpdateCommand = new Command(async () =>
-            {
-                _userRepository.SaveEntity(CurrentUser);
-                Console.WriteLine("User saved successfully.");
-                GenerateNewUser();
-                Refresh();
-            });
-            DeleteCommand = new Command(() =>
-            {
-                _userRepository.DeleteEntity(CurrentUser);
-                Refresh();
-                GenerateNewUser();
-            });
         }
-
-        private void GenerateNewUser()
-        {
-            CurrentUser = new Faker<Users>()
-                .RuleFor(x => x.Username, f => f.Person.UserName)
-                .Generate();
-        }
-
         private void Refresh()
         {
-            Users = _userRepository.GetEntities();
+            Products = _baseRepository.GetEntities();
         }
     }
 }

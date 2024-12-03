@@ -1,7 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DeKoelkast.MVVM.Views.MainPage">
+             x:Class="DeKoelkast.MVVM.Views.MainPage"
+             xmlns:local="clr-namespace:DeKoelkast.MVVM.ViewModels">
+
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel />
+    </ContentPage.BindingContext>
 
     <Grid
         RowSpacing="20"
@@ -59,33 +64,36 @@
                 Spacing="20"
                 Padding="10">
 
-                <Button
-                    x:Name="ProductButton"
-                    Clicked="ProductButton_Clicked"
-                    HeightRequest="160"
-                    WidthRequest="100"
-                    />
-
-                <Button
-                    x:Name="ProductButton2"
-                    Clicked="ProductButton_Clicked"
-                    HeightRequest="160"
-                    WidthRequest="100"
-                    />
-
-                <Button
-                    x:Name="ProductButton3"
-                    Clicked="ProductButton_Clicked"
-                    HeightRequest="160"
-                    WidthRequest="100"
-                    />
-
-                <Button
-                    x:Name="ProductButton4"
-                    Clicked="ProductButton_Clicked"
-                    HeightRequest="160"
-                    WidthRequest="100"
-                    />
+                <CollectionView
+                Grid.Row="1"
+                ItemsSource="{Binding Products}"
+                SelectionMode="Single"
+                SelectedItem="{Binding CurrentProducts}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <SwipeView>
+                                <SwipeView.LeftItems>
+                                    <SwipeItems>
+                                        <SwipeItem Text="Delete"
+                                               BackgroundColor="Red"
+                                               Command="{Binding 
+                                            Source={RelativeSource 
+                                            AncestorType={x:Type local:MainPageViewModel}},
+                                            Path=DeleteCommand}"/>
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
+                                <HorizontalStackLayout>
+                                    <Label Text="{Binding Productname}"
+                                       Grid.Column="0"/>
+                                    <Label />
+                                    <Label Text="{Binding Amount}"
+                                       Grid.Column="1"/>
+                                    <Label />
+                                </HorizontalStackLayout>
+                            </SwipeView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
 
             </HorizontalStackLayout>
 

@@ -2,7 +2,7 @@ namespace DeKoelkast;
 
 public partial class SettingsPage : ContentPage
 {
-	public SettingsPage()
+    public SettingsPage()
 	{
 		InitializeComponent();
 	}

@@ -8,6 +8,9 @@ namespace DeKoelkast.MVVM.Models
     [Table("Users")]
     public class Users : TableData
     {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+
         [Column("Username"), Indexed, NotNull]
         public string? Username { get; set; }
 

@@ -26,7 +26,7 @@ public partial class AddProductPage : ContentPage
         bool isAmountEmpty = string.IsNullOrEmpty(ProductAmountEntry.Text);
         bool isPriceEmpty = string.IsNullOrEmpty(ProductPriceEntry.Text);
 
-        if (IsSelectedOrNot1) 
+        if (IsSelectedOrNot1)
         {
             if (isNameEmpty)
             {
@@ -39,7 +39,6 @@ public partial class AddProductPage : ContentPage
                         ProductPriceEntry.Placeholder = "Enter a price";
                         ErrorAddProductLabel.Text = "Missing name, amount and price";
                     }
-
                     else
                     {
                         ProductNameEntry.Placeholder = "Enter a name";
@@ -87,7 +86,15 @@ public partial class AddProductPage : ContentPage
                     }
                     else
                     {
-                        App.ProductRepository.SaveEntity(new MVVM.Models.Products { Productname = ProductNameEntry.Text, Amount = ProductAmountEntry.Text, Price = ProductPriceEntry.Text });
+                        var product = new MVVM.Models.Products
+                        {
+                            Productname = ProductNameEntry.Text,
+                            Amount = ProductAmountEntry.Text,
+                            Price = $"€ {ProductPriceEntry.Text}",
+                            Icon = IconLabel.Text
+                        };
+                        Console.WriteLine($"Saving product: {product.Productname}, {product.Amount}, {product.Price}, {product.Icon}");
+                        App.ProductRepository.SaveEntity(product);
                         Navigation.PushAsync(new MVVM.Views.MainPage());
                     }
                 }
@@ -106,7 +113,6 @@ public partial class AddProductPage : ContentPage
                         ProductPriceEntry.Placeholder = "Enter a price";
                         ErrorAddProductLabel.Text = "Missing name, amount and price";
                     }
-
                     else
                     {
                         ProductNameEntry.Placeholder = "Enter a name";
@@ -154,7 +160,15 @@ public partial class AddProductPage : ContentPage
                     }
                     else
                     {
-                        App.ProductRepository.SaveEntity(new MVVM.Models.Products { Productname = ProductNameEntry.Text, Amount = ProductAmountEntry.Text, Price = ProductPriceEntry.Text });
+                        var product = new MVVM.Models.Products
+                        {
+                            Productname = ProductNameEntry.Text,
+                            Amount = ProductAmountEntry.Text,
+                            Price = $"€ {ProductPriceEntry.Text}",
+                            Icon = IconLabel.Text
+                        };
+                        Console.WriteLine($"Saving product: {product.Productname}, {product.Amount}, {product.Price}, {product.Icon}");
+                        App.ProductRepository.SaveEntity(product);
                         Navigation.PushAsync(new MVVM.Views.MainPage());
                     }
                 }
@@ -180,9 +194,10 @@ public partial class AddProductPage : ContentPage
         {
             IsSelectedOrNot1 = true;
             IsSelectedOrNot2 = false;
-            IconLabel.Text = "bottleicon.png";
+            IconLabel.Text = "greybottleicon.png";
             Bottlebutton.BackgroundColor = Color.FromHex("#cdcdcd");
             Canbutton.BackgroundColor = Color.FromHex("#ffffff");
+
         }
     }
 
@@ -198,7 +213,7 @@ public partial class AddProductPage : ContentPage
         {
             IsSelectedOrNot2 = true;
             IsSelectedOrNot1 = false;
-            IconLabel.Text = "canicon.png";
+            IconLabel.Text = "greycanicon.png";
             Canbutton.BackgroundColor = Color.FromHex("#cdcdcd");
             Bottlebutton.BackgroundColor = Color.FromHex("#ffffff");
         }

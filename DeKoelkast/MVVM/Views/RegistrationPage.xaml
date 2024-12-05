@@ -45,7 +45,7 @@
             Clicked="RegistrationButton_Clicked"
             BorderColor="DarkGrey"
             BorderWidth="1"
-            Text="Login"
+            Text="Sign up"
             WidthRequest="180"
             HeightRequest="60"/>
 

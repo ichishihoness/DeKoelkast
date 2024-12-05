@@ -7,8 +7,8 @@ public partial class SettingsPage : ContentPage
 		InitializeComponent();
 	}
 
-    private void BackToMainpageButton_Clicked(object sender, EventArgs e)
+    private void BackToMainPage_Clicked(object sender, EventArgs e)
     {
-
+        Navigation.PushAsync(new MVVM.Views.MainPage());
     }
 }

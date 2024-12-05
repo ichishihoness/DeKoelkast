@@ -8,9 +8,6 @@ namespace DeKoelkast.MVVM.Models
     [Table("Products")]
     public class Products : TableData
     {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-
         [Column("Productname"), Indexed, NotNull]
         public string? Productname { get; set; }
 

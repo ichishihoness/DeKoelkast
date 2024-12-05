@@ -46,7 +46,7 @@
         <Button
             x:Name="LoginButton"
             Clicked="LoginButton_Clicked"
-            Text="Login"
+            Text="Sign in"
             BorderColor="DarkGrey"
             BorderWidth="1"
             WidthRequest="180"

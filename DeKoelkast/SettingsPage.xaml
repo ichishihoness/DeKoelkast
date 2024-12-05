@@ -4,42 +4,13 @@
              x:Class="DeKoelkast.SettingsPage"
              xmlns:local="clr-namespace:DeKoelkast.MVVM.ViewModels">
 
-        <ContentPage.BindingContext>
-            <local:MainPageViewModel />
-        </ContentPage.BindingContext>
-    <ScrollView>
-        <Grid RowDefinitions=".2*, .8*">
-            <CollectionView
-                Grid.Row="1"
-                ItemsSource="{Binding Products}"
-                SelectionMode="Single"
-                SelectedItem="{Binding CurrentProducts}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <SwipeView>
-                            <SwipeView.LeftItems>
-                                <SwipeItems>
-                                    <SwipeItem Text="Delete"
-                                               BackgroundColor="Red"
-                                               Command="{Binding 
-                                            Source={RelativeSource 
-                                            AncestorType={x:Type local:MainPageViewModel}},
-                                            Path=DeleteCommand}"/>
-                                </SwipeItems>
-                            </SwipeView.LeftItems>
-                            <Grid
-                                ColumnDefinitions="*,*">
-                                <Label Text="{Binding Productname}"
-                                       Grid.Column="0"/>
-                                <Label />
-                                <Label Text="{Binding Amount}"
-                                       Grid.Column="1"/>
-                                <Label />
-                            </Grid>
-                        </SwipeView>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </Grid>
-    </ScrollView>
+    <VerticalStackLayout>
+
+        <Button
+            x:Name="BackToMainPage"
+            Clicked="BackToMainPage_Clicked"
+            />
+
+    </VerticalStackLayout>
+    
 </ContentPage>

@@ -48,19 +48,19 @@
             Text=""
             />
 
-        <Button
+        <ImageButton
             Grid.ColumnSpan="2"
             x:Name="BackToLoginButton"
             Clicked="BackToLoginButton_Clicked"
-            Text="B"
+            Source="logout.png"
             />
 
-        <Button
+        <ImageButton
             Grid.Column="6"
             Grid.ColumnSpan="2"
             x:Name="SettingsButton"
             Clicked="SettingsButton_Clicked"
-            Text="S"
+            Source="settingsicon.png"
             />
 
         <ScrollView
@@ -77,7 +77,7 @@
 
                 <CollectionView
                     ItemsSource="{Binding Products}"
-                    SelectionMode="Single"
+                    SelectionMode="None"
                     HorizontalOptions="Center"
                     SelectedItem="{Binding CurrentProducts}">
                     
@@ -106,6 +106,7 @@
                                         WidthRequest="100"
                                         Source="{Binding Icon}"
                                         Aspect="AspectFill"
+                                        BorderColor="Black"
                                         />
 
                                         <VerticalStackLayout
@@ -200,24 +201,25 @@
 
         </ScrollView> 
 
-        <Button
+        <ImageButton
             Grid.Row="8"
             Grid.RowSpan="3"
             Grid.Column="1"
             Grid.ColumnSpan="3"
             x:Name="AddProductButton"
             Clicked="AddProductButton_Clicked"
-            Text="AP"
+            Source="addproducticon.png"
+            Aspect="AspectFill"
             />
 
-        <Button
+        <ImageButton
             Grid.Row="8"
             Grid.RowSpan="3"
             Grid.Column="4"
             Grid.ColumnSpan="3"
             x:Name="AddUserButton"
             Clicked="AddUserButton_Clicked"
-            Text="AU"
+            Source="addusericon.png"
             />
 
     </Grid>

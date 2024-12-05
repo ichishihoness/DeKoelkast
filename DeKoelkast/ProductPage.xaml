@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DeKoelkast.ProductPage"
-             Title="ProductPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             x:Class="DeKoelkast.ProductPage">
+
+    <StackLayout Padding="10">
+        <Image Source="{Binding Icon}" HeightRequest="150" WidthRequest="100" Aspect="AspectFill"/>
+        <Label Text="{Binding Productname}" FontSize="20" TextColor="Black" FontAttributes="Bold"/>
+        <Label Text="{Binding Amount}" FontSize="20" TextColor="Black"/>
+        <Label Text="{Binding Price}" FontSize="20" TextColor="Black"/>
+    </StackLayout>
+
 </ContentPage>

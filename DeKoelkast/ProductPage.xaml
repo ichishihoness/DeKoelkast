@@ -4,6 +4,7 @@
              x:Class="DeKoelkast.ProductPage">
 
     <Grid
+        Padding="10"
         RowSpacing="20"
         ColumnSpacing="60">
         <Grid.RowDefinitions>
@@ -65,8 +66,6 @@
         </Grid.ColumnDefinitions>
 
         <StackLayout Padding="10">
-            <Label Text="{Binding Productname}" FontSize="20" TextColor="Black" FontAttributes="Bold"/>
-            <Label Text="{Binding Amount}" FontSize="20" TextColor="Black"/>
             <Label Text="{Binding Price}" FontSize="20" TextColor="Black"/>
         </StackLayout>
 
@@ -77,12 +76,16 @@
             BackgroundColor="White"/>
 
         <ImageButton
+            x:Name="BackToMainPageButton"
+            Clicked="BackToMainPageButton_Clicked"
             Grid.ColumnSpan="8"
             Grid.RowSpan="2"
             Source="backarrowicon.png"
             />
 
         <ImageButton
+            x:Name="ProductSettingsButton"
+            Clicked="ProductSettingsButton_Clicked"
             Grid.Column="20"
             Grid.ColumnSpan="8"
             Grid.RowSpan="2"
@@ -91,99 +94,46 @@
 
         <Image
             x:Name="ProductIcon"
-            Grid.Row="3"
+            Grid.Row="2"
             Grid.Column="8"
-            Grid.ColumnSpan="12"
-            Grid.RowSpan="6"
+            Grid.ColumnSpan="13"
+            Grid.RowSpan="7"
             Source="{Binding Icon}"
             BackgroundColor="White"
             Aspect="AspectFill"
             />
 
-        <Entry
-            MaxLength="10"
-            Grid.Row="11"
+        <Label
+            Grid.Row="10"
             Grid.Column="2"
             Grid.ColumnSpan="24"
             Grid.RowSpan="2"
-            Text=""
-            Placeholder="Enter product name"
+            FontSize="25"
+            FontAttributes="Bold"
+            Text="{Binding Productname}"
             HorizontalTextAlignment="Center"
             />
 
-        <Entry
+        <Label
+            Grid.Row="12"
+            Grid.Column="2"
+            Grid.ColumnSpan="24"
+            FontSize="25"
+            FontAttributes="Bold"
+            Grid.RowSpan="2"
+            Text="{Binding Amount, StringFormat='Aantal = {0}'}"
+            HorizontalTextAlignment="Center"
+            />
+
+        <Label
             Grid.Row="14"
-            Grid.Column="2"
-            Grid.ColumnSpan="24"
-            Grid.RowSpan="2"
-            MaxLength="3"
-            Text=""
-            Placeholder="Enter amount"
-            HorizontalTextAlignment="Center"
-            Keyboard="Numeric"
-            />
-
-        <Label
-            FontSize="20"
-            Grid.Row="17"
-            Grid.Column="6"
-            Grid.ColumnSpan="24"
-            Grid.RowSpan="2"
-            Text="€"
-            />
-
-        <Entry
-            Grid.Row="17"
-            Grid.Column="8"
-            Grid.ColumnSpan="12"
-            Grid.RowSpan="2"
-            MaxLength="4"
-            Text=""
-            Placeholder="Enter price"
-            HorizontalTextAlignment="Center"
-            Keyboard="Numeric"
-            />
-
-        <Label
-            Grid.Row="19"
             Grid.Column="7"
-            Grid.ColumnSpan="6"
-            Grid.RowSpan="3"
-            Text="Price per piece"
+            Grid.ColumnSpan="14"
+            Grid.RowSpan="2"
+            FontSize="25"
+            FontAttributes="Bold"
+            Text="{Binding Price, StringFormat='Prijs = {0}'}"
             HorizontalTextAlignment="Center"
-            />
-
-        <Switch
-            Grid.Row="19"
-            Grid.Column="11"
-            Grid.ColumnSpan="6"
-            Grid.RowSpan="2"
-            />
-
-        <Label
-            Grid.Row="19"
-            Grid.Column="14"
-            Grid.ColumnSpan="6"
-            Grid.RowSpan="2"
-            Text="Total price"
-            HorizontalTextAlignment="Center"
-            />
-
-        <Label
-            Grid.Row="21"
-            Grid.Column="1"
-            Grid.ColumnSpan="24"
-            Grid.RowSpan="4"
-            Text="Balance + €"
-            FontSize="30"
-            />
-
-        <ImageButton
-            Grid.Row="21"
-            Grid.Column="19"
-            Grid.ColumnSpan="8"
-            Grid.RowSpan="2"
-            Source="calcicon.png"
             />
 
     </Grid>

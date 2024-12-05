@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,34 +13,23 @@ using DeKoelkast.Repositories;
 namespace DeKoelkast.MVVM.ViewModels
 {
     [AddINotifyPropertyChangedInterface]
-    public class MainPageViewModel
+    public class MainPageViewModelTwo
     {
-        public List<Products>? Products { get; set; }
-        public Products? CurrentProducts { get; set; }
         public List<Users>? Users { get; set; }
         public Users? CurrentUsers { get; set; }
         public ICommand? AddOrUpdateCommand { get; set; }
         public ICommand? DeleteCommand { get; set; }
 
-        private readonly BaseRepository<Products> _productsRepository;
-        private readonly BaseRepository<Users> _usersRepository;
+        private readonly BaseRepository<Users> _baseRepository;
 
-        public MainPageViewModel()
+        public MainPageViewModelTwo()
         {
-            _productsRepository = new BaseRepository<Products>();
-            _usersRepository = new BaseRepository<Users>();
+            _baseRepository = new BaseRepository<Users>();
             Refresh();
-            LoadRefresh();
         }
-
         private void Refresh()
         {
-            Products = _productsRepository.GetEntities();
-        }
-
-        private void LoadRefresh()
-        {
-            Users = _usersRepository.GetEntities();
+            Users = _baseRepository.GetEntities();
         }
     }
 }

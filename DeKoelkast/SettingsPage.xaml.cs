@@ -6,4 +6,9 @@ public partial class SettingsPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void BackToMainpageButton_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }

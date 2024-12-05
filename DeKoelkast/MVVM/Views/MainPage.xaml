@@ -9,6 +9,7 @@
     </ContentPage.BindingContext>
 
     <Grid
+        Padding="10"
         RowSpacing="20"
         ColumnSpacing="60">
         <Grid.RowDefinitions>
@@ -106,7 +107,6 @@
                                         WidthRequest="100"
                                         Source="{Binding Icon}"
                                         Aspect="AspectFill"
-                                        BorderColor="Black"
                                         />
 
                                         <VerticalStackLayout
@@ -164,12 +164,13 @@
                 
             </HorizontalStackLayout>
 
-        </ScrollView>  
-        
+        </ScrollView>
+
         <ScrollView
             HorizontalScrollBarVisibility="Never"
             Orientation="Horizontal"
-            Grid.Row="4"
+            Padding="0,10,0,0"
+            Grid.Row="3"
             Grid.RowSpan="3"
             Grid.ColumnSpan="8">
 
@@ -177,29 +178,85 @@
                 Spacing="20"
                 Padding="10">
 
-                <BoxView
-                    HeightRequest="160"
-                    WidthRequest="100"
-                    />
+                <CollectionView
+                    ItemsSource="{Binding Users}"
+                    SelectionMode="None"
+                    HorizontalOptions="Center"
+                    SelectedItem="{Binding CurrentUsers}">
 
-                <BoxView
-                    HeightRequest="160"
-                    WidthRequest="100"
-                    />
+                    <CollectionView.ItemsLayout>
 
-                <BoxView
-                    HeightRequest="160"
-                    WidthRequest="100"
-                    />
+                        <LinearItemsLayout 
+                                Orientation="Horizontal" 
+                                ItemSpacing="20"
+                                />
 
-                <BoxView
-                    HeightRequest="160"
-                    WidthRequest="100"
-                    />
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate>
+
+                            <SwipeView>
+
+                                <VerticalStackLayout
+                                Spacing="10">
+
+                                    <Image
+                                        HeightRequest="150"
+                                        WidthRequest="100"
+                                        Source="greyusericon.png"
+                                        Aspect="AspectFill"
+                                        />
+
+                                    <VerticalStackLayout
+                                            Padding="30"
+                                            Spacing="-49">
+
+                                        <Label/>
+
+                                        <Label/>
+
+                                        <Label/>
+
+                                        <Label 
+                                            Text="{Binding Balance}"
+                                            FontSize="20"
+                                            TextColor="White"
+                                            HorizontalOptions="Center"
+                                            FontAttributes="Bold"
+                                            />
+
+                                        <Label/>
+
+                                        <Label 
+                                            Text="{Binding Username}"
+                                            FontSize="20"
+                                            HorizontalOptions="Center"
+                                            TextColor="White"
+                                            FontAttributes="Bold"
+                                            />
+
+                                        <Label/>
+
+
+                                        <Label/>
+
+                                    </VerticalStackLayout>
+
+                                </VerticalStackLayout>
+
+                            </SwipeView>
+
+                        </DataTemplate>
+
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
 
             </HorizontalStackLayout>
 
-        </ScrollView> 
+        </ScrollView>
 
         <ImageButton
             Grid.Row="8"
@@ -223,5 +280,7 @@
             />
 
     </Grid>
+        
+        
 
 </ContentPage>

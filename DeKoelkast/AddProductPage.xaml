@@ -5,6 +5,7 @@
              Title="AddProductPage">
 
     <Grid
+        Padding="15"
         RowSpacing="20"
         ColumnSpacing="60">
         <Grid.RowDefinitions>

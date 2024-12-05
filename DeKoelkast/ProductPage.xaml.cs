@@ -1,3 +1,5 @@
+using DeKoelkast.MVVM.Views;
+
 namespace DeKoelkast;
 
 public partial class ProductPage : ContentPage
@@ -32,6 +34,16 @@ public partial class ProductPage : ContentPage
         {
             ProductIcon.Source = "settingsicon.png";
         }
+    }
+
+    private void BackToMainPageButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new MainPage());
+    }
+
+    private void ProductSettingsButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new ProductSettingsPage());
     }
 }
 

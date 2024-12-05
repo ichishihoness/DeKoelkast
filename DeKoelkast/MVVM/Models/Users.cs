@@ -8,7 +8,6 @@ namespace DeKoelkast.MVVM.Models
     [Table("Users")]
     public class Users : TableData
     {
-
         [Column("Username"), Indexed, NotNull]
         public string? Username { get; set; }
 

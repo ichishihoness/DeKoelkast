@@ -2,8 +2,11 @@ namespace DeKoelkast;
 
 public partial class ProductPage : ContentPage
 {
-	public ProductPage()
+    private MVVM.Models.Products _product;
+    public ProductPage(MVVM.Models.Products product)
 	{
-		InitializeComponent();
+        _product = product;
+        BindingContext = _product;
+        InitializeComponent();
 	}
 }

@@ -20,7 +20,12 @@
 
         private void ProductButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ProductPage());
+            var button = sender as ImageButton;
+            var product = button?.BindingContext as MVVM.Models.Products;
+            if (product != null)
+            {
+                Navigation.PushAsync(new ProductPage(product));
+            }
         }
 
         private void AddProductButton_Clicked(object sender, EventArgs e)

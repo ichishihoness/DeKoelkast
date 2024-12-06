@@ -11,9 +11,15 @@ namespace DeKoelkast.Abstractions
     {
         void SaveEntity(T entity);
 
+        void SaveEntityWithChilderen(T entity, bool recursive = false);
+
         T? GetEntity(int id);
         List<T>? GetEntities();
 
+        List<T>? GetEntitiesWithChildren(); 
+
         void DeleteEntity(T entity);
+
+        void DeleteEntityWithChilderen(T entity);
     }
 }

@@ -9,6 +9,7 @@ using PropertyChanged;
 using Bogus;
 using DeKoelkast.MVVM.Models;
 using DeKoelkast.Repositories;
+using SQLiteNetExtensions.Attributes;
 
 namespace DeKoelkast.MVVM.ViewModels
 {
@@ -18,6 +19,7 @@ namespace DeKoelkast.MVVM.ViewModels
         public List<Products>? Products { get; set; }
         public Products? CurrentProducts { get; set; }
         public List<Users>? Users { get; set; }
+        [OneToOne(CascadeOperations = CascadeOperation.CascadeInsert | CascadeOperation.CascadeRead | CascadeOperation.CascadeDelete)]
         public Users? CurrentUsers { get; set; }
         public ICommand? AddOrUpdateCommand { get; set; }
         public ICommand? DeleteCommand { get; set; }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
+using SQLiteNetExtensions.Extensions;
 
 namespace DeKoelkast.Repositories
 {
@@ -32,6 +33,19 @@ namespace DeKoelkast.Repositories
             }
         }
 
+        public void DeleteEntityWithChilderen(T entity)
+        {
+            try
+            {
+                connection.Delete(entity, recursive: true);
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = $"Error {ex.Message}";
+            }
+
+        }
+
         public void Dispose()
         {
             connection.Dispose();
@@ -42,6 +56,19 @@ namespace DeKoelkast.Repositories
             try
             {
                 return connection.Table<T>().ToList();
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = $"Error {ex.Message}";
+            }
+            return null;
+        }
+
+        public List<T>? GetEntitiesWithChildren()
+        {
+            try
+            {
+                return connection.GetAllWithChildren<T>() .ToList();
             }
             catch (Exception ex)
             {
@@ -86,6 +113,11 @@ namespace DeKoelkast.Repositories
                     StatusMessage = $"Error {ex.Message}";
                 }
             }
+        }
+
+        public void SaveEntityWithChilderen(T entity, bool recursive = false)
+        {
+            connection.InsertWithChildren(entity, recursive);
         }
     }
 }

@@ -94,7 +94,7 @@ public partial class AddProductPage : ContentPage
                             Icon = IconLabel.Text
                         };
                         Console.WriteLine($"Saving product: {product.Productname}, {product.Amount}, {product.Price}, {product.Icon}");
-                        App.ProductRepository.SaveEntity(product);
+                        App.ProductRepository.SaveEntityWithChilderen(product);
                         Navigation.PushAsync(new MVVM.Views.MainPage());
                     }
                 }

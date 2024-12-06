@@ -1,4 +1,7 @@
+using CommunityToolkit.Maui.Views;
 using DeKoelkast.MVVM.Views;
+using MauiToolkitPopupSample;
+using Microsoft.Maui.Controls; // Add this using directive
 
 namespace DeKoelkast;
 
@@ -45,5 +48,9 @@ public partial class ProductPage : ContentPage
     {
         Navigation.PushAsync(new ProductSettingsPage());
     }
-}
 
+    private void ConsumeButton_Clicked(object sender, EventArgs e)
+    {
+        this.ShowPopup(new ConsumePopup()); 
+    }
+}

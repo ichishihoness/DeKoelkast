@@ -32,7 +32,6 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -134,6 +133,17 @@
             FontAttributes="Bold"
             Text="{Binding Price, StringFormat='Prijs = {0}'}"
             HorizontalTextAlignment="Center"
+            />
+
+        <Button
+            Grid.Row="20"
+            Grid.Column="4"
+            Grid.ColumnSpan="21"
+            Grid.RowSpan="2"
+            x:Name="ConsumeButton"
+            Clicked="ConsumeButton_Clicked"
+            BackgroundColor="LightGreen"
+            Text="Consume"
             />
 
     </Grid>

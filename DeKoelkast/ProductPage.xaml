@@ -142,6 +142,9 @@
             Grid.RowSpan="2"
             x:Name="ConsumeButton"
             Clicked="ConsumeButton_Clicked"
+            BorderColor="Black"
+            BorderWidth="1"
+            TextColor="Black"
             BackgroundColor="LightGreen"
             Text="Consume"
             />

@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
 using DeKoelkast.MVVM.Models;
+using Camera.MAUI;
 
 namespace DeKoelkast
 {
@@ -12,7 +13,9 @@ namespace DeKoelkast
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCameraView()
                 .UseMauiCommunityToolkit()
+                .UseMauiCommunityToolkitCamera()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

@@ -36,6 +36,14 @@
             <ColumnDefinition />
             <ColumnDefinition />
             <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
         <Label
@@ -50,15 +58,15 @@
             />
 
         <ImageButton
-            Grid.ColumnSpan="2"
+            Grid.ColumnSpan="4"
             x:Name="BackToLoginButton"
             Clicked="BackToLoginButton_Clicked"
             Source="logout.png"
             />
 
         <ImageButton
-            Grid.Column="6"
-            Grid.ColumnSpan="2"
+            Grid.Column="12"
+            Grid.ColumnSpan="4"
             x:Name="SettingsButton"
             Clicked="SettingsButton_Clicked"
             Source="settingsicon.png"
@@ -70,7 +78,7 @@
             Padding="0,10,0,0"
             Grid.Row="1"
             Grid.RowSpan="3"
-            Grid.ColumnSpan="8">
+            Grid.ColumnSpan="16">
 
             <HorizontalStackLayout
                 Spacing="20"
@@ -172,7 +180,7 @@
             Padding="10,10,0,0"
             Grid.Row="4"
             Grid.RowSpan="3"
-            Grid.ColumnSpan="8">
+            Grid.ColumnSpan="16">
 
             <HorizontalStackLayout
                 Spacing="20"
@@ -263,19 +271,30 @@
         <ImageButton
             Grid.Row="8"
             Grid.RowSpan="3"
-            Grid.Column="1"
-            Grid.ColumnSpan="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="6"
             x:Name="AddProductButton"
             Clicked="AddProductButton_Clicked"
             Source="addproducticon.png"
             Aspect="AspectFill"
             />
 
+        <Button
+            Text="Truth or drink game"
+            
+            Grid.Row="8"
+            Grid.RowSpan="3"
+            Grid.Column="5"
+            Grid.ColumnSpan="6"
+            x:Name="TruthOrDrinkButton"
+            Clicked="TruthOrDrinkButton_Clicked"
+            />
+
         <ImageButton
             Grid.Row="8"
             Grid.RowSpan="3"
-            Grid.Column="4"
-            Grid.ColumnSpan="3"
+            Grid.Column="10"
+            Grid.ColumnSpan="6"
             x:Name="AddUserButton"
             Clicked="AddUserButton_Clicked"
             Source="addusericon.png"

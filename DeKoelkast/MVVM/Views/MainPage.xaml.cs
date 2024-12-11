@@ -38,6 +38,10 @@
             Navigation.PushAsync(new AddUserPage());
         }
 
+        private void TruthOrDrinkButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new TruthOrDrinkGamePage());
+        }
     }
 
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DeKoelkast.TruthOrDrinkGamePage">
+    
+    <VerticalStackLayout>
+        
+        <Label
+            x:Name="QuestionBox"
+            Text="Select a questionlist!"
+            HorizontalTextAlignment="Center"
+            FontSize="30"
+            VerticalTextAlignment="Center"
+            FontFamily="Caprica"
+            BackgroundColor="#F1F1F1"
+            TextColor="Black"
+            HeightRequest="250"
+            WidthRequest="330"/>
+
+        <Button
+            x:Name="PLayAPIButton"   
+            Clicked="PLayAPIButton_Clicked"
+            BorderWidth="2"
+            BorderColor="Black"
+            BackgroundColor="Green"
+            HeightRequest="75"
+            WidthRequest="150"
+            HorizontalOptions="End"/>
+
+    </VerticalStackLayout>
+    
+</ContentPage>

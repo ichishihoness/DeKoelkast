@@ -1,4 +1,5 @@
 using DeKoelkast.Api;
+using DeKoelkast.MVVM.Views;
 
 namespace DeKoelkast;
 
@@ -13,5 +14,11 @@ public partial class TruthOrDrinkGamePage : ContentPage
     {
         var result = await ApiQuestion.GetTruth();
         QuestionBox.Text = result.question;
+        PLayAPIButton.Text = "Next question";
+    }
+
+    private void BackToMainPageButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new MainPage());
     }
 }

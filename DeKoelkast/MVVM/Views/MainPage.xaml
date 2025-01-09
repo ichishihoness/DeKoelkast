@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DeKoelkast.MVVM.Views.MainPage"
-             xmlns:local="clr-namespace:DeKoelkast.MVVM.ViewModels">
+             xmlns:local="clr-namespace:DeKoelkast.MVVM.ViewModels"
+             BackgroundImageSource="wallpaperapp.jpg">
 
     <ContentPage.BindingContext>
         <local:MainPageViewModel />
@@ -269,9 +270,9 @@
         </ScrollView>
 
         <ImageButton
-            Grid.Row="8"
+            Grid.Row="7"
             Grid.RowSpan="3"
-            Grid.Column="0"
+            Grid.Column="2"
             Grid.ColumnSpan="6"
             x:Name="AddProductButton"
             Clicked="AddProductButton_Clicked"
@@ -281,19 +282,20 @@
 
         <Button
             Text="Truth or drink game"
-            
-            Grid.Row="8"
-            Grid.RowSpan="3"
-            Grid.Column="5"
-            Grid.ColumnSpan="6"
+            BorderWidth="1"
+            Grid.Row="10"
+            Grid.RowSpan="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="14"
+            FontSize="24"
             x:Name="TruthOrDrinkButton"
             Clicked="TruthOrDrinkButton_Clicked"
             />
 
         <ImageButton
-            Grid.Row="8"
+            Grid.Row="7"
             Grid.RowSpan="3"
-            Grid.Column="10"
+            Grid.Column="8"
             Grid.ColumnSpan="6"
             x:Name="AddUserButton"
             Clicked="AddUserButton_Clicked"

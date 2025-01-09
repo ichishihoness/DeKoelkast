@@ -47,7 +47,7 @@
             x:Name="LoginButton"
             Clicked="LoginButton_Clicked"
             Text="Sign in"
-            BorderColor="DarkGrey"
+            
             BorderWidth="1"
             WidthRequest="180"
             HeightRequest="60"/>
@@ -56,7 +56,6 @@
             x:Name="RegistrationPageButton"
             Clicked="RegistrationPageButton_Clicked"
             HorizontalOptions="Center"
-            BorderColor="DarkGrey"
             BorderWidth="1"
             Text="New user?"
             WidthRequest="180"

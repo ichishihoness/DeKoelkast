@@ -99,7 +99,6 @@
             Grid.ColumnSpan="13"
             Grid.RowSpan="7"
             Source="{Binding Icon}"
-            BackgroundColor="White"
             Aspect="AspectFill"
             />
 
@@ -115,6 +114,7 @@
             />
 
         <Label
+            x:Name="AmountLabel"
             Grid.Row="12"
             Grid.Column="2"
             Grid.ColumnSpan="24"
@@ -145,9 +145,25 @@
             Clicked="ConsumeButton_Clicked"
             BorderColor="Black"
             BorderWidth="1"
+            FontSize="20"
             TextColor="Black"
             BackgroundColor="LightGreen"
             Text="Consume"
+            />
+
+        <Button
+            Grid.Row="17"
+            Grid.Column="4"
+            Grid.ColumnSpan="21"
+            Grid.RowSpan="2"
+            x:Name="AddButton"
+            Clicked="AddButton_Clicked"
+            BorderColor="Black"
+            BorderWidth="1"
+            FontSize="20"
+            TextColor="Black"
+            BackgroundColor="OrangeRed"
+            Text="Add another"
             />
 
     </Grid>

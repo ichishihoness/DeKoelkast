@@ -1,11 +1,130 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DeKoelkast.AddUserPage">
+             x:Class="DeKoelkast.AddUserPage"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls">
 
-    <VerticalStackLayout>
+    <Grid
+        Padding="10"
+        RowSpacing="20"
+        ColumnSpacing="60">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
 
+        <ImageButton
+            Grid.ColumnSpan="8"
+            Grid.RowSpan="2"
+            x:Name="ReturnToMainFromAddUser"
+            Clicked="ReturnToMainFromAddUser_Clicked"
+            Source="backarrowicon.png"
+            />
 
-    </VerticalStackLayout>
+        <Label
+            Grid.Column="2"
+            Grid.Row="3"
+            Grid.ColumnSpan="24"
+            Grid.RowSpan="3"
+            HorizontalTextAlignment="Center"
+            FontSize="30"
+            Text="Unique invitation code:"/>
+        
+        <Label
+            x:Name="InvitationCode"
+            Grid.Column="2"
+            Grid.Row="5"
+            Grid.ColumnSpan="24"
+            Grid.RowSpan="3"
+            HorizontalTextAlignment="Center"
+            FontSize="30"
+            Text=""/>
+        
+        <Button
+            Grid.Column="3"
+            Grid.Row="8"
+            Grid.ColumnSpan="22"
+            Grid.RowSpan="3"
+            x:Name="GenerateCodeButton"
+            Clicked="GenerateCodeButton_Clicked"
+            Text="Invite using invitation code"
+            IsEnabled="True"
+            BorderWidth="1"
+            HorizontalOptions="FillAndExpand" />
 
+        <Image
+            Grid.Column="3"
+            Grid.Row="14"
+            Grid.ColumnSpan="22"
+            Grid.RowSpan="3"
+            x:Name="QrCodeImage"
+            HeightRequest="300"
+            WidthRequest="300"/>
+
+        <Button
+            Grid.Column="3"
+            Grid.Row="20"
+            Grid.ColumnSpan="22"
+            Grid.RowSpan="3"
+            IsEnabled="True"
+            BorderWidth="1"
+            x:Name="GenerateQRButton"
+            Clicked="GenerateQRButton_Clicked"
+            Text="Invite using QR code"
+            HorizontalOptions="FillAndExpand" />
+
+    </Grid>
+    
 </ContentPage>

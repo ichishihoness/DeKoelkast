@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
 using DeKoelkast.MVVM.Models;
 using Camera.MAUI;
+using ZXing.Net.Maui.Controls;
 
 namespace DeKoelkast
 {
@@ -13,6 +14,7 @@ namespace DeKoelkast
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseBarcodeReader()
                 .UseMauiCameraView()
                 .UseMauiCommunityToolkit()
                 .UseMauiCommunityToolkitCamera()

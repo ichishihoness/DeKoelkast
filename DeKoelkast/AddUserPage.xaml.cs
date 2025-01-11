@@ -1,12 +1,16 @@
 using QRCoder;
+using DeKoelkast.MVVM.Models;
 
 namespace DeKoelkast;
 
 public partial class AddUserPage : ContentPage
 {
-	public AddUserPage()
-	{
-		InitializeComponent();
+    private readonly Users _currentUser;
+
+    public AddUserPage(Users currentUser)
+    {
+        InitializeComponent();
+        _currentUser = currentUser;
     }
 
     private void GenerateQRButton_Clicked(object sender, EventArgs e)
@@ -37,6 +41,6 @@ public partial class AddUserPage : ContentPage
 
     private void ReturnToMainFromAddUser_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new MVVM.Views.MainPage());
+        Navigation.PushAsync(new MVVM.Views.MainPage(_currentUser));
     }
 }

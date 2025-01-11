@@ -1,11 +1,14 @@
 namespace DeKoelkast;
+using DeKoelkast.MVVM.Models;
 
 public partial class LoginPage : ContentPage
 {
-	public LoginPage()
-	{
-		InitializeComponent();
-	}
+    private Users _currentUser;
+
+    public LoginPage()
+    {
+        InitializeComponent();
+    }
 
     private void LoginButton_Clicked(object sender, EventArgs e)
     {
@@ -30,9 +33,10 @@ public partial class LoginPage : ContentPage
         }
         else
         {
-            if (App.UserRepository.GetEntities().Any(user => user.Username == UsernameLoginEntry.Text && user.Password == PasswordLoginEntry.Text))
+            _currentUser = App.UserRepository.GetEntities().FirstOrDefault(user => user.Username == UsernameLoginEntry.Text && user.Password == PasswordLoginEntry.Text);
+            if (_currentUser != null)
             {
-                Navigation.PushAsync(new MVVM.Views.MainPage());
+                Navigation.PushAsync(new FridgesPage(_currentUser));
             }
             else
             {

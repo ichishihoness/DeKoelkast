@@ -1,22 +1,30 @@
 using Microsoft.Maui.Controls.Compatibility.Platform;
 using Microsoft.Maui.Layouts;
+using DeKoelkast.MVVM.Models;
+using DeKoelkast.Repositories;
 
 namespace DeKoelkast;
 
 public partial class AddProductPage : ContentPage
 {
+    private readonly BaseRepository<Products> _productsRepository;
+    private readonly BaseRepository<Users> _usersRepository;
+    private readonly Users _currentUser;
     private bool IsSelectedOrNot1 = false;
     private bool IsSelectedOrNot2 = false;
     private bool PriceSwichState = false;
 
-    public AddProductPage()
+    public AddProductPage(Users currentUser)
     {
         InitializeComponent();
+        _productsRepository = new BaseRepository<Products>();
+        _usersRepository = new BaseRepository<Users>();
+        _currentUser = currentUser;
     }
 
     private void CancelAddProduct_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new MVVM.Views.MainPage());
+        Navigation.PushAsync(new MVVM.Views.MainPage(_currentUser));
     }
 
     private void AddProduct_Clicked(object sender, EventArgs e)
@@ -90,12 +98,31 @@ public partial class AddProductPage : ContentPage
                         {
                             Productname = ProductNameEntry.Text,
                             Amount = ProductAmountEntry.Text,
-                            Price = $"€ {ProductPriceEntry.Text}",
+                            Price = ProductPriceEntry.Text,
                             Icon = IconLabel.Text
                         };
                         Console.WriteLine($"Saving product: {product.Productname}, {product.Amount}, {product.Price}, {product.Icon}");
-                        App.ProductRepository.SaveEntityWithChilderen(product);
-                        Navigation.PushAsync(new MVVM.Views.MainPage());
+                        App.ProductRepository.SaveEntity(product);
+
+                        if (decimal.TryParse(ProductPriceEntry.Text, out decimal price))
+                        {
+                            if (decimal.TryParse(ProductAmountEntry.Text, out decimal amount))
+                            {
+                                if (PriceSwichState == true)
+                                {
+                                    _currentUser.Balance += price;
+                                    _usersRepository.SaveEntity(_currentUser);
+                                    Navigation.PushAsync(new MVVM.Views.MainPage(_currentUser));
+                                }
+                                else
+                                {
+                                    decimal total = price * amount;
+                                    _currentUser.Balance += total;
+                                    _usersRepository.SaveEntity(_currentUser);
+                                    Navigation.PushAsync(new MVVM.Views.MainPage(_currentUser));
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -164,12 +191,31 @@ public partial class AddProductPage : ContentPage
                         {
                             Productname = ProductNameEntry.Text,
                             Amount = ProductAmountEntry.Text,
-                            Price = $"€ {ProductPriceEntry.Text}",
+                            Price = ProductPriceEntry.Text,
                             Icon = IconLabel.Text
                         };
                         Console.WriteLine($"Saving product: {product.Productname}, {product.Amount}, {product.Price}, {product.Icon}");
                         App.ProductRepository.SaveEntity(product);
-                        Navigation.PushAsync(new MVVM.Views.MainPage());
+
+                        if (decimal.TryParse(ProductPriceEntry.Text, out decimal price))
+                        {
+                            if (decimal.TryParse(ProductAmountEntry.Text, out decimal amount))
+                            {
+                                if (PriceSwichState == true)
+                                {
+                                    _currentUser.Balance += price;
+                                    _usersRepository.SaveEntity(_currentUser);
+                                    Navigation.PushAsync(new MVVM.Views.MainPage(_currentUser));
+                                }
+                                else
+                                {
+                                    decimal total = price * amount;
+                                    _currentUser.Balance += total;
+                                    _usersRepository.SaveEntity(_currentUser);
+                                    Navigation.PushAsync(new MVVM.Views.MainPage(_currentUser));
+                                }
+                            }
+                        }
                     }
                 }
             }

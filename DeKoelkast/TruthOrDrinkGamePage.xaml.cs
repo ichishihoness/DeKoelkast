@@ -1,13 +1,17 @@
 using DeKoelkast.Api;
 using DeKoelkast.MVVM.Views;
+using DeKoelkast.MVVM.Models;
 
 namespace DeKoelkast;
 
 public partial class TruthOrDrinkGamePage : ContentPage
 {
-    public TruthOrDrinkGamePage()
+    private readonly Users _currentUser;
+
+    public TruthOrDrinkGamePage(Users currentUser)
     {
         InitializeComponent();
+        _currentUser = currentUser;
     }
 
     private async void PLayAPIButton_Clicked(object sender, EventArgs e)
@@ -19,6 +23,6 @@ public partial class TruthOrDrinkGamePage : ContentPage
 
     private void BackToMainPageButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new MainPage());
+        Navigation.PushAsync(new MainPage(_currentUser));
     }
 }

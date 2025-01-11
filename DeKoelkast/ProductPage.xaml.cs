@@ -9,13 +9,17 @@ namespace DeKoelkast;
 public partial class ProductPage : ContentPage
 {
     private readonly BaseRepository<Products> _productsRepository;
+    private readonly BaseRepository<Users> _usersRepository;
     private MVVM.Models.Products _product;
+    private readonly Users _currentUser;
 
-    public ProductPage(MVVM.Models.Products product)
+    public ProductPage(MVVM.Models.Products product, Users currentUser)
     {
         InitializeComponent();
         _productsRepository = new BaseRepository<Products>();
+        _usersRepository = new BaseRepository<Users>();
         _product = product;
+        _currentUser = currentUser;
         BindingContext = _product;
     }
 
@@ -25,7 +29,7 @@ public partial class ProductPage : ContentPage
 
         if (Changeiconlabel != null)
         {
-            Console.WriteLine($"Changeiconlabel.Text: {Changeiconlabel.Text}"); // Debug statement
+            Console.WriteLine($"Changeiconlabel.Text: {Changeiconlabel.Text}"); 
 
             if (Changeiconlabel.Text == "greybottleicon.png")
             {
@@ -44,7 +48,7 @@ public partial class ProductPage : ContentPage
 
     private void BackToMainPageButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new MainPage());
+        Navigation.PushAsync(new MainPage(_currentUser));
     }
 
     private void ProductSettingsButton_Clicked(object sender, EventArgs e)
@@ -56,11 +60,24 @@ public partial class ProductPage : ContentPage
     {
         if (int.TryParse(_product.Amount, out int amount) && amount > 0)
         {
-            _product.Amount = (amount - 1).ToString();
-            _productsRepository.SaveEntity(_product);
-            AmountLabel.Text = $"Aantal = {_product.Amount}";
+            if (decimal.TryParse(_product.Price, out decimal price))
+            {
+                _product.Amount = (amount - 1).ToString();
+                _currentUser.Balance -= price;
+                _productsRepository.SaveEntity(_product);
+                _usersRepository.SaveEntity(_currentUser);
+                AmountLabel.Text = $"Aantal = {_product.Amount}";
+            }
+            else
+            {
+                _product.Amount = (amount - 1).ToString();
+                _currentUser.Balance -= price;
+                _productsRepository.SaveEntity(_product);
+                _usersRepository.SaveEntity(_currentUser);
+                AmountLabel.Text = $"Aantal = {_product.Amount}";
+            }
         }
-        else     
+        else
         {
             AmountLabel.TextColor = Colors.Red;
         }
@@ -70,9 +87,22 @@ public partial class ProductPage : ContentPage
     {
         if (int.TryParse(_product.Amount, out int amount))
         {
-            _product.Amount = (amount + 1).ToString();
-            _productsRepository.SaveEntity(_product);
-            AmountLabel.Text = $"Aantal = {_product.Amount}";
+            if (decimal.TryParse(_product.Price, out decimal price))
+            {
+                _product.Amount = (amount + 1).ToString();
+                _currentUser.Balance += price;
+                _productsRepository.SaveEntity(_product);
+                _usersRepository.SaveEntity(_currentUser);
+                AmountLabel.Text = $"Aantal = {_product.Amount}";
+            }
+            else
+            {
+                _product.Amount = (amount + 1).ToString();
+                _currentUser.Balance += price;
+                _productsRepository.SaveEntity(_product);
+                _usersRepository.SaveEntity(_currentUser);
+                AmountLabel.Text = $"Aantal = {_product.Amount}";
+            }
         }
     }
 }

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DeKoelkast.FridgesPage"
+             xmlns:local="clr-namespace:DeKoelkast.MVVM.ViewModels"
+             Title="FridgesPage">
+
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid
+        Padding="10"
+        RowSpacing="20"
+        ColumnSpacing="60">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label 
+            Grid.Row="0"
+            Grid.Column="8"
+            Grid.ColumnSpan="13"
+            Grid.RowSpan="4"
+            Text="Your fridges"
+            FontSize="40"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <ImageButton
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="7"
+            Grid.RowSpan="2"
+            x:Name="BackToLoginButton"
+            Clicked="BackToLoginButton_Clicked"
+            Source="logout.png"
+            />
+
+        <Label 
+            Grid.Row="8"
+            Grid.Column="8"
+            Grid.ColumnSpan="13"
+            Grid.RowSpan="4"
+            Text="Join a fridge"
+            FontSize="40"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label 
+            Grid.Row="11"
+            Grid.Column="8"
+            Grid.ColumnSpan="13"
+            Grid.RowSpan="4"
+            Text="Enter an invitation code"
+            FontSize="30"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <BoxView
+            Grid.Row="15"
+            Grid.Column="3"
+            Grid.ColumnSpan="22"
+            Color="LightGrey"   
+            Grid.RowSpan="3"
+            />
+
+        <Entry
+            x:Name="InviteCodeEntry"
+            Grid.Row="16"
+            Grid.Column="4"
+            Grid.ColumnSpan="20"
+            Grid.RowSpan="2"
+            FontSize="25"
+            HorizontalTextAlignment="Center"
+            MaxLength="5"
+            />
+
+        <Button
+            x:Name="JoinFridgeButton"
+            Clicked="JoinFridgeButton_Clicked"
+            Grid.Row="18"
+            Grid.Column="4"
+            Grid.ColumnSpan="20"
+            Grid.RowSpan="3"
+            Text="Join fridge"
+            BorderWidth="1"
+            FontSize="30"
+            />
+
+        <Button
+            Grid.Row="21"
+            Grid.Column="4"
+            Grid.ColumnSpan="20"
+            Grid.RowSpan="3"
+            Text="Scan a QR code"
+            FontSize="30"
+            BorderWidth="1"
+            />
+
+    </Grid>
+
+</ContentPage>

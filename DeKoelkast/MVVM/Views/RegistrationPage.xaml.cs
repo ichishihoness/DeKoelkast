@@ -1,12 +1,15 @@
 using Microsoft.Maui.Devices.Sensors;
 namespace DeKoelkast;
+using DeKoelkast.MVVM.Models;
 
 public partial class RegistrationPage : ContentPage
 {
-	public RegistrationPage()
-	{
-		InitializeComponent();
-	}
+    private Users _currentUser;
+
+    public RegistrationPage()
+    {
+        InitializeComponent();
+    }
 
     private void RegistrationButton_Clicked(object sender, EventArgs e)
     {
@@ -31,8 +34,9 @@ public partial class RegistrationPage : ContentPage
         }
         else
         {
-            App.UserRepository.SaveEntity(new MVVM.Models.Users { Username = UsernameRegistrationEntry.Text, Password = PasswordRegistrationEntry.Text });
-            Navigation.PushAsync(new MVVM.Views.MainPage());
+            _currentUser = new Users { Username = UsernameRegistrationEntry.Text, Password = PasswordRegistrationEntry.Text };
+            App.UserRepository.SaveEntity(_currentUser);
+            Navigation.PushAsync(new FridgesPage(_currentUser));
         }
     }
 

@@ -28,14 +28,4 @@ public partial class FridgesPage : ContentPage
     {
         Navigation.PushAsync(new NewFridgePage(_currentUser));
     }
-
-    /*private void QRLezer_BarcodesDetected(object sender, ZXing.Net.Maui.BarcodeDetectionEventArgs e)
-    {
-        var first = e.Results?.FirstOrDefault();
-
-        Dispatcher.DispatchAsync(async () =>
-        {
-            await DisplayAlert("Barcode", first.Value, "OK");
-        });
-    }*/
 }

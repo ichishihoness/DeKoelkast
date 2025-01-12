@@ -30,6 +30,7 @@
         <Entry
             x:Name="UsernameRegistrationEntry"
             TextColor="Black"
+            MaxLength="10"
             HorizontalTextAlignment="Center"
             Placeholder="Username"/>
 

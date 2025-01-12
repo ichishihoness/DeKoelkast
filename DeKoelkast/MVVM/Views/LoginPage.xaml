@@ -19,8 +19,6 @@
         <Label
             HorizontalOptions="Center"
             Text="De Koelkast"
-            
-            
             FontSize="50"
             FontAttributes="Bold"/>
 
@@ -33,6 +31,7 @@
         <Entry
             x:Name="UsernameLoginEntry"
             TextColor="Black"
+            MaxLength="10"
             HorizontalTextAlignment="Center"
             Placeholder="Username"/>
 

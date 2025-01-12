@@ -171,7 +171,7 @@
             Grid.Column="8"
             Grid.ColumnSpan="12"
             Grid.RowSpan="2"
-            MaxLength="4"
+            MaxLength="5"
             Text=""
             Placeholder="Enter price"
             HorizontalTextAlignment="Center"
@@ -181,8 +181,8 @@
 
         <Label
             Grid.Row="19"
-            Grid.Column="7"
-            Grid.ColumnSpan="6"
+            Grid.Column="6"
+            Grid.ColumnSpan="7"
             Grid.RowSpan="3"
             Text="Price per piece"
             HorizontalTextAlignment="Center"

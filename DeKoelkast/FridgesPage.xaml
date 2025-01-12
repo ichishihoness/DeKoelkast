@@ -2,12 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DeKoelkast.FridgesPage"
-             xmlns:local="clr-namespace:DeKoelkast.MVVM.ViewModels"
-             Title="FridgesPage">
-
-    <ContentPage.BindingContext>
-        <local:MainPageViewModel />
-    </ContentPage.BindingContext>
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+             BackgroundImageSource="wallpaperapp.jpg">
 
     <Grid
         Padding="10"
@@ -77,7 +73,7 @@
             Text="Your fridges"
             FontSize="40"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"/>
 
         <ImageButton
             Grid.Row="0"
@@ -88,6 +84,33 @@
             Clicked="BackToLoginButton_Clicked"
             Source="logout.png"
             />
+
+
+
+        <ImageButton
+            Grid.Row="5"
+            Grid.Column="2"
+            BackgroundColor="Gray"
+            Grid.ColumnSpan="7"
+            Grid.RowSpan="2"
+            x:Name="FridgeButton"
+            Clicked="FridgeButton_Clicked"
+            HeightRequest="150"
+            WidthRequest="100"
+            Source="fridgeicon.png"
+            Aspect="AspectFill"/>
+
+        <ImageButton
+            Grid.Row="5"
+            Grid.Column="12"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="2"
+            x:Name="AddFridgeButton"
+            Clicked="AddFridgeButton_Clicked"
+            HeightRequest="100"
+            WidthRequest="100"
+            Source="plusicon.png"
+            Aspect="AspectFill"/>
 
         <Label 
             Grid.Row="8"
@@ -130,7 +153,6 @@
 
         <Button
             x:Name="JoinFridgeButton"
-            Clicked="JoinFridgeButton_Clicked"
             Grid.Row="18"
             Grid.Column="4"
             Grid.ColumnSpan="20"
@@ -148,6 +170,19 @@
             Text="Scan a QR code"
             FontSize="30"
             BorderWidth="1"
+            />
+
+        <Label
+            x:Name="FridgeNameLabel"
+            Grid.Row="5"
+            Grid.Column="2"
+            Grid.ColumnSpan="7"
+            Grid.RowSpan="4" 
+            Text="Fridge 1"
+            FontSize="19"
+            FontAttributes="Bold"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
             />
 
     </Grid>

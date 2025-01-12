@@ -37,14 +37,14 @@ namespace DeKoelkast.MVVM.Views
             Navigation.PushAsync(new AddProductPage(_currentUser));
         }
 
-        private void AddUserButton_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new AddUserPage(_currentUser));
-        }
-
         private void TruthOrDrinkButton_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new TruthOrDrinkGamePage(_currentUser));
+        }
+
+        private void AddUserButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AddUserPage(_currentUser));
         }
     }
 }

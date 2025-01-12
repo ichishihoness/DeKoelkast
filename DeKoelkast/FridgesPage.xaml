@@ -85,8 +85,6 @@
             Source="logout.png"
             />
 
-
-
         <ImageButton
             Grid.Row="5"
             Grid.Column="2"

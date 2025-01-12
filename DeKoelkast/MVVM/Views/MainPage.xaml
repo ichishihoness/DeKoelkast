@@ -120,7 +120,8 @@
 
                                         <VerticalStackLayout
                                             Padding="30"
-                                            Spacing="-49">
+                                            Spacing="-49"
+                                            >
                                                                                      
                                         <Label/>
 
@@ -128,14 +129,28 @@
 
                                         <Label/>
 
-                                        <Label 
+                                        <HorizontalStackLayout
+                                            Spacing="5"
+                                            HorizontalOptions="Center">
+
+                                            <Label
+                                            Text="€"
+                                            FontSize="20"
+                                            TextColor="White"
+                                            HorizontalOptions="Center"
+                                            FontAttributes="Bold"
+                                                />
+
+                                            <Label 
                                             Text="{Binding Price}"
                                             FontSize="20"
                                             TextColor="White"
                                             HorizontalOptions="Center"
                                             FontAttributes="Bold"
                                             />
-                                            
+
+                                        </HorizontalStackLayout>
+
                                         <Label/>
                                             
                                         <Label 
@@ -220,7 +235,8 @@
 
                                     <VerticalStackLayout
                                             Padding="30"
-                                            Spacing="-49">
+                                            Spacing="-49"
+                                        >
 
                                         <Label/>
 
@@ -230,14 +246,30 @@
 
                                         <Label/>
 
+                                        <HorizontalStackLayout
+                                            Spacing="5"
+                                            HorizontalOptions="Center">
 
-                                        <Label 
+                                            <Label
+                                            Text="€"
+                                            FontSize="20"
+                                            TextColor="White"
+                                            HorizontalOptions="Center"
+                                            FontAttributes="Bold"
+                                                />
+
+                                            <Label 
                                             Text="{Binding Balance}"
                                             FontSize="20"
                                             TextColor="White"
                                             HorizontalOptions="Center"
                                             FontAttributes="Bold"
                                             />
+
+                                        </HorizontalStackLayout>
+
+
+
 
                                         <Label/>
 

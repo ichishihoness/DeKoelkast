@@ -11,7 +11,7 @@ public partial class SettingsPage : ContentPage
         _currentUser = currentUser;
     }
 
-    private void BackToMainPage_Clicked(object sender, EventArgs e)
+    private void BackToMainPageButton_Clicked(object sender, EventArgs e)
     {
         Navigation.PushAsync(new MVVM.Views.MainPage(_currentUser));
     }

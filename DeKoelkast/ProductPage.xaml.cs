@@ -53,8 +53,9 @@ public partial class ProductPage : ContentPage
 
     private void ProductSettingsButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new ProductSettingsPage());
+        Navigation.PushAsync(new ProductSettingsPage(_currentUser, _product));
     }
+
 
     private void ConsumeButton_Clicked(object sender, EventArgs e)
     {
